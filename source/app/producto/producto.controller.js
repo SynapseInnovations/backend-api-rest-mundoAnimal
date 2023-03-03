@@ -3,10 +3,11 @@ const { productoModel  } = require("../../model/producto.model")
 const mostrarProductos = async(req,res) =>{
       try{
             let consulta_mostrarProductos = await productoModel.VerProductos();
-            return res.json({
+            return res.json(consulta_mostrarProductos);
+            /*return res.json({
                   error: false,
                   data: consulta_mostrarProductos
-            })
+            })*/
       }catch(error){
             return res.json({
                   error: true,
