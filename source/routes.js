@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.use('/app/producto', require("./app/producto/producto.routes"));
+app.use('/producto', require("./routes/producto.routes"));
+app.use('/usuario', require("./routes/cuenta.routes"));
 
 module.exports = app;

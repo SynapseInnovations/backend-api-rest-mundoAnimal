@@ -1,7 +1,7 @@
-const conexion = require("../database");
-const { productoHelper } = require("../app/producto/producto.helper")
+const conexion = require("../../database");
+const { productoHelper } = require("./producto.helper")
 
-const AgregarProducto = async(producto) => {
+const Agregar = async(producto) => {
       let codigoBarra = producto.codigo_barra;
       let nombre = producto.nombre;
       let unidades = producto.unidades;
@@ -25,10 +25,10 @@ const AgregarProducto = async(producto) => {
 
 const VerProductos = async() =>{
       let sql_verProducto = `SELECT * FROM Producto`;
-      return conexion.query(sql_verProducto)
+      return await conexion.query(sql_verProducto)
 };
 
 module.exports.productoModel = {
-      AgregarProducto,
+      Agregar,
       VerProductos
 }

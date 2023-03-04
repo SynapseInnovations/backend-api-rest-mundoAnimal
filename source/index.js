@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const { initialSetup } = require("./libs/initialSetup");
 
 require("dotenv").config({ path: __dirname + "/../.env" });
 
@@ -23,3 +24,7 @@ app.listen(app.get("port"), () => {
     console.log("Sistema de gestion de turno");
     console.log("Escuchando el servidor desde el puerto: ", app.get("port"));
   });
+
+/** Crear roles por defecto */
+initialSetup.InicializarDatabase();
+
