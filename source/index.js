@@ -26,5 +26,5 @@ app.listen(app.get("port"), () => {
   });
 
 /** Crear roles por defecto */
-initialSetup.InicializarDatabase();
+//initialSetup.InicializarDatabase();
 

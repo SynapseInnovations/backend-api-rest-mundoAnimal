@@ -33,5 +33,5 @@ const agregarProducto = async(req, res) =>{
 
 module.exports.productController = {
       mostrarProductos,
-      agregarProducto
-}
+      agregarProducto,
+};

@@ -2,10 +2,12 @@
 const conexion = require("../database");
 
 const InicializarDatabase = async()=>{
-      await CrearRoles();
-      await CrearMarca();
-      await CrearAnimal();
-      await CrearTipo();
+      await Promise.all([
+            CrearRoles(),
+            CrearMarca(),
+            CrearAnimal(),
+            CrearTipo()
+      ])
 }
 
 const CrearRoles = async() =>{
@@ -17,10 +19,13 @@ const CrearRoles = async() =>{
                   let sql_CrearRolVendedor = "INSERT INTO Rol (nombre, descripcion) VALUES ('Vendedor','Toma acciones en base a la venta de productos');";
                   let sql_CrearRolInventario = "INSERT INTO Rol (nombre, descripcion) VALUES ('Inventario','Administra los productos existentes en la empresa');";
                   let sql_CrearRolUsuario = "INSERT INTO Rol (nombre, descripcion) VALUES ('Usuario','Usuario común, compra productos en línea');";
-                  await conexion.query(sql_CrearRolAdministrador);
-                  await conexion.query(sql_CrearRolVendedor);
-                  await conexion.query(sql_CrearRolInventario);
-                  await conexion.query(sql_CrearRolUsuario);
+                  
+                  await Promise.all([
+                        conexion.query(sql_CrearRolAdministrador),
+                        conexion.query(sql_CrearRolVendedor),
+                        conexion.query(sql_CrearRolInventario),
+                        conexion.query(sql_CrearRolUsuario)
+                  ])
             }
       }catch(error){
             console.error(error)
@@ -36,10 +41,13 @@ const CrearMarca = async() =>{
                         let sql_CrearMarcaChampion = "INSERT INTO Marca (nombre, logo) VALUES ('Champion','https://i.imgur.com/93J2tC9.jpg');";
                         let sql_CrearMarcaFitFormula = "INSERT INTO Marca (nombre, logo) VALUES ('Fit Formula','https://i.imgur.com/93J2tC9.jpg');";
                         let sql_CrearMarcasRoyalCanin = "INSERT INTO Marca (nombre, logo) VALUES ('Royal Canin','https://i.imgur.com/93J2tC9.jpg');";
-                        await conexion.query(sql_CrearMarcaPurina);
-                        await conexion.query(sql_CrearMarcaChampion);
-                        await conexion.query(sql_CrearMarcaFitFormula);
-                        await conexion.query(sql_CrearMarcasRoyalCanin);
+                        await Promise.all([
+                              conexion.query(sql_CrearMarcaPurina),
+                              conexion.query(sql_CrearMarcaChampion),
+                              conexion.query(sql_CrearMarcaFitFormula),
+                              conexion.query(sql_CrearMarcasRoyalCanin)
+                        ])
+
                   }
       } catch (error) {
             console.error(error);
@@ -54,9 +62,11 @@ const CrearAnimal = async() =>{
                   let sql_CrearAnimalPerro = "INSERT INTO Animal (nombre) VALUES ('Perro');";
                   let sql_CrearAnimalGato = "INSERT INTO Animal (nombre) VALUES ('Gato');";
                   let sql_CrearAnimalConejo = "INSERT INTO Animal (nombre) VALUES ('Conejo');"
-                  await conexion.query(sql_CrearAnimalPerro);
-                  await conexion.query(sql_CrearAnimalGato);
-                  await conexion.query(sql_CrearAnimalConejo);
+                  await Promise.all([
+                        conexion.query(sql_CrearAnimalPerro),
+                        conexion.query(sql_CrearAnimalGato),
+                        conexion.query(sql_CrearAnimalConejo)
+                  ])
             }
       } catch (error) {
             console.error(error);
@@ -70,8 +80,10 @@ const CrearTipo = async() =>{
             if (cantidadTipo[0].cantidad == 0) {
                   let sql_CrearTipo = "INSERT INTO Tipo (nombre) VALUES ('Comida');";
                   let sql_CrearAccesorio = "INSERT INTO Tipo (nombre) VALUES ('Accesorios');";
-                  await conexion.query(sql_CrearTipo);
-                  await conexion.query(sql_CrearAccesorio);
+                  await Promise.all([
+                        conexion.query(sql_CrearTipo),
+                        conexion.query(sql_CrearAccesorio)
+                  ])
             }
       } catch (error) {
             console.error(error);
