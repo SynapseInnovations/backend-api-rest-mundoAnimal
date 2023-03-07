@@ -2,7 +2,10 @@ const jwt = require("jsonwebtoken");
 const { cuentaHelper } = require("../app/cuenta/cuenta.helper");
 
 const VerificarToken = async (req, res, next) => {
+      console.log("xd");
+
       try{
+            
             const token = req.headers["token"];
 
             if (!token) {
