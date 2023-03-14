@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
 
-const CuentaUsuario = class{
+const Cuenta = class{
       constructor(rut, nombre, correo, clave, direccion){
             this.rut = rut;
             this.nombre = nombre;
@@ -19,6 +19,4 @@ const CuentaUsuario = class{
       }
 }
 
-module.exports.cuentaClase = {
-      CuentaUsuario
-};
+module.exports = Cuenta;

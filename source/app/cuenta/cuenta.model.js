@@ -1,6 +1,6 @@
 const conexion = require("../../database");
 const { cuentaHelper } = require("./cuenta.helper");
-const { cuentaClase } = require("../../models/cuenta")
+const { Cuenta } = require("../../class/cuenta")
 const jwt = require("jsonwebtoken");
 const { rolModel } = require("./rol/rol.model");
 const { validateRUT } = require("validar-rut");
@@ -18,7 +18,7 @@ const Registrar = async(usuario) =>{
 
       let nombre = usuario.nombre;
       let correo = usuario.correo;
-      let clave = await cuentaClase.CuentaUsuario.EncriptarClave(usuario.clave);
+      let clave = await Cuenta.EncriptarClave(usuario.clave);
       
       let direccion = usuario.direccion;
 
@@ -38,6 +38,9 @@ const Registrar = async(usuario) =>{
 };
 
 const IniciarSesion = async(usuario) => {
+      //TODO: RECORDAR QUE EL FRONTEND ENVIA CLAVES ENCRIPTADAS
+      // POR TANTO SE DEBE DESCIFRAR ANTES DE TRABAJARLAS.
+      
       const { rut , clave } = usuario;
 
       if (!validateRUT(rut)) {
@@ -49,9 +52,13 @@ const IniciarSesion = async(usuario) => {
       }
 
       const userEncontrado = await rolModel.ObtenerRol(rut);
-      if(!await cuentaClase.CuentaUsuario.CompararClave(clave,userEncontrado.clave)){
+      console.log(userEncontrado.clave)
+      console.log(clave)
+      
+      //TODO: REVISAR DESPUÉS
+      /*if(!await cuentaClase.CuentaUsuario.CompararClave(clave,userEncontrado.clave)){
             throw new TypeError("Clave incorrecta");
-      }
+      }*/
       
       const token = jwt.sign({ id: userEncontrado.rut }, process.env.SECRET, {
             expiresIn: 86400, // 24 Horas
@@ -61,11 +68,11 @@ const IniciarSesion = async(usuario) => {
 }
 
 const Listar = async()=>{
-      const sql_ListaUsuarios = `SELECT rut FROM Cuenta`;
+      /*const sql_ListaUsuarios = `SELECT rut FROM Cuenta`;
       listaRutUsuario = await conexion.query(sql_ListaUsuarios);
 
       const listaUsuarioRoles = [];
-
+      
       for(let i=0; i < listaRutUsuario.length ;i++){
 
             let usuarioRoles = await cuentaHelper.DatosUsuario(listaRutUsuario[i].rut)
@@ -74,7 +81,11 @@ const Listar = async()=>{
             }
       }
 
-      return listaUsuarioRoles;
+      return listaUsuarioRoles;*/
+
+      const sql_ListaUsuario = `SELECT * FROM Cuenta `;
+      listaUsuario = await conexion.query(sql_ListaUsuario);
+      return listaUsuario;
 }
 
 module.exports.cuentaModel = {

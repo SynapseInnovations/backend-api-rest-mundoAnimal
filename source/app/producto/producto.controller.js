@@ -10,13 +10,14 @@ const mostrarProductos = async(req,res) =>{
       }catch(error){
             return res.json({
                   error: true,
-                  msg: ''+error
+                  msg: ''+error.message
             });
       }
-}
+};
 
 const agregarProducto = async(req, res) =>{
       try{
+            console.log('agregarProducto');
             let consulta_insercionProducto = await productoModel.Agregar(req.body);
             return res.json({
                   error: false,
@@ -26,12 +27,36 @@ const agregarProducto = async(req, res) =>{
       }catch(error){
             return res.json({
                   error:true,
-                  msg: ''+error
+                  msg: ''+error.message
+            });
+      }
+};
+
+const modificarProducto = async(req, res) =>{
+      try{
+
+      }catch(error){
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
+
+const eliminarProducto = async(req, res) =>{
+      try {
+      
+      }catch(error) {
+            return res.json({
+                  error:true,
+                  msg: ''+error.message
             })
       }
-}
+};
 
-module.exports.productController = {
+module.exports.productoController = {
       mostrarProductos,
       agregarProducto,
+      modificarProducto,
+      eliminarProducto
 };
