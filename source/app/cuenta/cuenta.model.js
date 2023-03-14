@@ -64,7 +64,7 @@ const IniciarSesion = async(usuario) => {
             expiresIn: 86400, // 24 Horas
       });
       const data = await cuentaHelper.PerfilUsuario(rut);
-      data[0].token = token
+      data.push({'token':token})
 
       return data;
 }
