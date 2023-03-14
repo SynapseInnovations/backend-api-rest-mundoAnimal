@@ -17,7 +17,6 @@ const mostrarProductos = async(req,res) =>{
 
 const agregarProducto = async(req, res) =>{
       try{
-            console.log('agregarProducto');
             let consulta_insercionProducto = await productoModel.Agregar(req.body);
             return res.json({
                   error: false,
@@ -45,7 +44,11 @@ const modificarProducto = async(req, res) =>{
 
 const eliminarProducto = async(req, res) =>{
       try {
-      
+            const consulta_eliminarProducto = await productoModel.Eliminar();
+            return res.status(200).json({
+                  error: false,
+                  msg: 'Se ha eliminado el producto'
+            });
       }catch(error) {
             return res.json({
                   error:true,

@@ -49,6 +49,7 @@ const VerificarUsuario = async (req,res,next) =>{
 const VerificarAdministrador = async (req, res, next) => {
       try {
             const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
+            console.log(rolesUsuario)
             for (let i = 0; i < rolesUsuario.length; i++) {
                   if (rolesUsuario[i].Rol === "Administrador") {
                         next();

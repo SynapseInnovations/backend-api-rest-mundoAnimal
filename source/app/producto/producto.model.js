@@ -28,7 +28,12 @@ const VerProductos = async() =>{
       return await conexion.query(sql_verProducto)
 };
 
+const Eliminar = async() => {
+
+}
+
 module.exports.productoModel = {
       Agregar,
-      VerProductos
+      VerProductos,
+      Eliminar
 }

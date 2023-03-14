@@ -1,18 +1,11 @@
 const conexion = require("../../../database");
 
-const AsignarRol = async(rut) => {
-      // Ver como juntar estas 2 query xd
-      let sql_RolUsuario = `
-      SELECT * FROM Rol
-      WHERE nombre = 'Usuario'
-      `;
-
-      let res_RolUsuario = await conexion.query(sql_RolUsuario);
-      
+const AsignarRol = async(rut, rol) => {
       let sql_AsignarRol = `
       INSERT INTO RolesDeCuenta (Roles_id_rol, Cuenta_rut) 
-      VALUES (${res_RolUsuario[0].id_rol},'${rut}');`;
-      await conexion.query(sql_AsignarRol);
+      SELECT id_rol, '${rut}' FROM Rol WHERE nombre = '${rol}';
+      `;
+      return await conexion.query(sql_AsignarRol);
 };
 
 const ObtenerRol = async(rut) => {

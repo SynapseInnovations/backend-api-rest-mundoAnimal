@@ -1,9 +1,9 @@
 const conexion = require("../../database");
 const { cuentaHelper } = require("./cuenta.helper");
-const { Cuenta } = require("../../class/cuenta")
 const jwt = require("jsonwebtoken");
 const { rolModel } = require("./rol/rol.model");
 const { validateRUT } = require("validar-rut");
+const  Cuenta  = require("../../class/cuenta")
 
 const Registrar = async(usuario) =>{
       let rut = usuario.rut;
@@ -18,6 +18,7 @@ const Registrar = async(usuario) =>{
 
       let nombre = usuario.nombre;
       let correo = usuario.correo;
+
       let clave = await Cuenta.EncriptarClave(usuario.clave);
       
       let direccion = usuario.direccion;
@@ -26,9 +27,10 @@ const Registrar = async(usuario) =>{
       `INSERT INTO Cuenta(rut, nombre, correo, clave, direccion)
       VALUES ('${rut}','${nombre}','${correo}','${clave}','${direccion}');
       `;
+      
       await Promise.all([
-            conexion.query(sql_RegistrarUsuario),
-            rolModel.AsignarRol(rut)
+        conexion.query(sql_RegistrarUsuario),
+        rolModel.AsignarRol(rut, "Usuario"),
       ]);
 
       const token = jwt.sign({ rut }, process.env.SECRET, {
@@ -52,8 +54,6 @@ const IniciarSesion = async(usuario) => {
       }
 
       const userEncontrado = await rolModel.ObtenerRol(rut);
-      console.log(userEncontrado.clave)
-      console.log(clave)
       
       //TODO: REVISAR DESPUÉS
       /*if(!await cuentaClase.CuentaUsuario.CompararClave(clave,userEncontrado.clave)){
@@ -68,7 +68,7 @@ const IniciarSesion = async(usuario) => {
 }
 
 const Listar = async()=>{
-      /*const sql_ListaUsuarios = `SELECT rut FROM Cuenta`;
+      const sql_ListaUsuarios = `SELECT rut FROM Cuenta`;
       listaRutUsuario = await conexion.query(sql_ListaUsuarios);
 
       const listaUsuarioRoles = [];
@@ -81,11 +81,7 @@ const Listar = async()=>{
             }
       }
 
-      return listaUsuarioRoles;*/
-
-      const sql_ListaUsuario = `SELECT * FROM Cuenta `;
-      listaUsuario = await conexion.query(sql_ListaUsuario);
-      return listaUsuario;
+      return listaUsuarioRoles;
 }
 
 module.exports.cuentaModel = {
