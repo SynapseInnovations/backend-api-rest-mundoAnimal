@@ -44,10 +44,11 @@ const modificarProducto = async(req, res) =>{
 
 const eliminarProducto = async(req, res) =>{
       try {
-            const consulta_eliminarProducto = await productoModel.Eliminar();
+            const consulta_eliminarProducto = await productoModel.Eliminar(req.params.codigo);
             return res.status(200).json({
                   error: false,
-                  msg: 'Se ha eliminado el producto'
+                  msg: 'Se ha eliminado el producto',
+                  data: consulta_eliminarProducto
             });
       }catch(error) {
             return res.json({

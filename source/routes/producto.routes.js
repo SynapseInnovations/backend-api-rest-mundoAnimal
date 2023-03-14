@@ -7,7 +7,7 @@ const { authToken } = require("../middlewares/autenticacion.jwt");
 router.get("", [authToken.VerificarToken, authToken.VerificarUsuario ],productoController.mostrarProductos);
 router.post("/agregar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.agregarProducto);
 router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
-router.delete("/eliminar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
+router.delete("/eliminar/:codigo",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
 
 /*
 // Producto - Animal
