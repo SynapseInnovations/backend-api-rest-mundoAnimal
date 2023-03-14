@@ -63,8 +63,10 @@ const IniciarSesion = async(usuario) => {
       const token = jwt.sign({ id: userEncontrado.rut }, process.env.SECRET, {
             expiresIn: 86400, // 24 Horas
       });
+      const data = await cuentaHelper.PerfilUsuario(rut);
+      data[0].token = token
 
-      return token;
+      return data;
 }
 
 const Listar = async()=>{

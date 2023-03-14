@@ -41,7 +41,7 @@ const iniciarSesion = async(req,res)=>{
             return res.status(200).json({
                   error: false,
                   msg: "Se ha iniciado sesión correctamente",
-                  token: consulta_iniciarSesion
+                  data: consulta_iniciarSesion
             });
       }catch(error){
             console.error(error);

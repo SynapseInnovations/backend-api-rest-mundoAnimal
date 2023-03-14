@@ -21,9 +21,6 @@ const Modificar = async() => {
       `UPDATE Marca 
       SET nombre = ''
       `
-      //UPDATE usuarios SET correo = 'nuevo_correo@example.com' 
-      //WHERE id = 1234;
-
 };
 
 const Eliminar = async() => {

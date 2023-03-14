@@ -31,7 +31,7 @@ const VerProductos = async() =>{
 const Eliminar = async(codigo) => {
       let sql_eliminarProducto = `
       DELETE FROM Producto 
-      WHERE codigo = ${codigo}`;
+      WHERE codigo_barra = '${codigo}'`;
       return await conexion.query(sql_eliminarProducto);
 }
 

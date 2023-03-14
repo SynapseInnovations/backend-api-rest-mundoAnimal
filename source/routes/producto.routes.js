@@ -6,8 +6,10 @@ const { authToken } = require("../middlewares/autenticacion.jwt");
 // Producto
 router.get("", [authToken.VerificarToken, authToken.VerificarUsuario ],productoController.mostrarProductos);
 router.post("/agregar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.agregarProducto);
-router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
 router.delete("/eliminar/:codigo",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
+
+// FALTA POR HACER
+router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
 
 /*
 // Producto - Animal
