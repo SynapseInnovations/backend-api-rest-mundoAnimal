@@ -67,7 +67,7 @@ const IniciarSesion = async(usuario) => {
       data.push({'token':token})
 
       return data;
-}
+};
 
 const Listar = async()=>{
       const sql_ListaUsuarios = `SELECT * FROM Cuenta`;
@@ -85,10 +85,30 @@ const Listar = async()=>{
       }*/
 
       return listaRutUsuario;
-}
+};
+
+const Perfil = async(rut)=>{
+      const sql_Perfil = `
+            SELECT Cuenta.nombre, correo, clave, direccion, GROUP_CONCAT(DISTINCT Rol.nombre ORDER BY Rol.nombre ASC) AS roles
+            FROM Cuenta 
+            INNER JOIN RolesDeCuenta ON Cuenta.rut = RolesDeCuenta.Cuenta_rut
+            INNER JOIN Rol ON RolesDeCuenta.Roles_id_rol = Rol.id_rol
+            WHERE Cuenta.rut = '${rut}'
+            GROUP BY Cuenta.nombre, correo, clave, direccion;
+      `;
+
+      let respuestaPerfil = await conexion.query(sql_Perfil);
+
+      await respuestaPerfil.forEach((cuenta)=>{
+            cuenta.roles = cuenta.roles.split(',');
+      })
+
+      return respuestaPerfil;
+};
 
 module.exports.cuentaModel = {
       Registrar,
       IniciarSesion,
-      Listar
+      Listar,
+      Perfil
 }

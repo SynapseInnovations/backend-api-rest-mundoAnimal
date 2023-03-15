@@ -59,10 +59,12 @@ const asignarRol = async(req,res) => {
             
             await rolModel.AsignarRol(rut, rol);
 
+            const datosUsuario = await cuentaHelper.DatosUsuario(rut)
+
             return res.status(200).json({
                   error: false,
                   msg: `Al usuario ${rut} se le ha asignado el rol de ${rol}`,
-                  data: await cuentaHelper.DatosUsuario(rut)
+                  data: datosUsuario
             });
       }catch(error){
             return res.status(400).json({
@@ -74,7 +76,12 @@ const asignarRol = async(req,res) => {
 
 const perfilUsuario = async(req,res) =>  {
       try{
-
+            const consulta_perfilUsuario = await cuentaModel.Perfil(req.query.rut)
+            return res.status(200).json({
+                  error: false,
+                  msg: `Datos del usuario ${req.query.rut}`,
+                  data: consulta_perfilUsuario
+            });
       }catch(error){
             return res.status(400).json({
                   error: true,
@@ -87,5 +94,6 @@ module.exports.cuentaController = {
       mostrarUsuarios,
       registrarUsuario,
       iniciarSesion,
-      asignarRol
+      asignarRol,
+      perfilUsuario
 };

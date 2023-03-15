@@ -72,14 +72,14 @@ const VerificarVendedor = async (req, res, next) => {
       try {
             const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
-                  if (rolesUsuario[i].Rol === "Vendedor") {
+                  if (rolesUsuario[i].Rol === "Operador") {
                     next();
                     return;
                   }
             }
             return res.status(403).json({
                   error: true,
-                  msg: "Solo los Vendedores pueden acceder a esta función"
+                  msg: "Solo los Operadores pueden acceder a esta función"
             });
       }catch (error) {
             return res.status(401).json({
@@ -93,7 +93,7 @@ const VerificarVendedorOrAdministrador = async(req, res, next) => {
       try {
             const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
-                  if (rolesUsuario[i].Rol === "Vendedor" || rolesUsuario[i].Rol === "Administrador")
+                  if (rolesUsuario[i].Rol === "Operador" || rolesUsuario[i].Rol === "Administrador")
                   {
                         next();
                         return;
@@ -101,7 +101,7 @@ const VerificarVendedorOrAdministrador = async(req, res, next) => {
             }
             return res.status(403).json({
                   error: true,
-                  msg: "Solo los Vendedores y Administradores pueden acceder a esta función",
+                  msg: "Solo los Operadores y Administradores pueden acceder a esta función",
             });
       } catch (error) {
             return res.status(401).json({
