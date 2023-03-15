@@ -70,7 +70,7 @@ const IniciarSesion = async(usuario) => {
 }
 
 const Listar = async()=>{
-      const sql_ListaUsuarios = `SELECT rut FROM Cuenta`;
+      const sql_ListaUsuarios = `SELECT * FROM Cuenta`;
       listaRutUsuario = await conexion.query(sql_ListaUsuarios);
 
       const listaUsuarioRoles = [];
