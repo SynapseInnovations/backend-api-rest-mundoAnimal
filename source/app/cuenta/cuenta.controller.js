@@ -72,6 +72,17 @@ const asignarRol = async(req,res) => {
       }
 };
 
+const perfilUsuario = async(req,res) =>  {
+      try{
+
+      }catch(error){
+            return res.status(400).json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
+
 module.exports.cuentaController = {
       mostrarUsuarios,
       registrarUsuario,

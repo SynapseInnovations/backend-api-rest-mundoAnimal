@@ -75,15 +75,16 @@ const Listar = async()=>{
 
       const listaUsuarioRoles = [];
       
+      /*
       for(let i=0; i < listaRutUsuario.length ;i++){
 
             let usuarioRoles = await cuentaHelper.DatosUsuario(listaRutUsuario[i].rut)
             if(usuarioRoles.length > 0){
                   listaUsuarioRoles.push(usuarioRoles)
             }
-      }
+      }*/
 
-      return listaUsuarioRoles;
+      return listaRutUsuario;
 }
 
 module.exports.cuentaModel = {
