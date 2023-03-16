@@ -56,9 +56,9 @@ const IniciarSesion = async(usuario) => {
       const userEncontrado = await rolModel.ObtenerRol(rut);
       
       //TODO: REVISAR DESPUÉS
-      /*if(!await cuentaClase.CuentaUsuario.CompararClave(clave,userEncontrado.clave)){
+      if (!await Cuenta.CompararClave(clave, userEncontrado.clave)) {
             throw new TypeError("Clave incorrecta");
-      }*/
+      }
       
       const token = jwt.sign({ id: userEncontrado.rut }, process.env.SECRET, {
             expiresIn: 86400, // 24 Horas
@@ -89,7 +89,7 @@ const Listar = async()=>{
 
 const Perfil = async(rut)=>{
       const sql_Perfil = `
-            SELECT Cuenta.nombre, correo, clave, direccion, GROUP_CONCAT(DISTINCT Rol.nombre ORDER BY Rol.nombre ASC) AS roles
+            SELECT Cuenta.nombre, correo, direccion, GROUP_CONCAT(DISTINCT Rol.nombre ORDER BY Rol.nombre ASC) AS roles
             FROM Cuenta 
             INNER JOIN RolesDeCuenta ON Cuenta.rut = RolesDeCuenta.Cuenta_rut
             INNER JOIN Rol ON RolesDeCuenta.Roles_id_rol = Rol.id_rol
