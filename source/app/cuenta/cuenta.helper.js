@@ -9,16 +9,6 @@ const VerificarUsuarioSistema = async (rut) =>{
       return respuesta[0].Existe;
 };
 
-const DatosUsuario = async(rut) =>{
-      let sql_Usuario = `
-      SELECT Cuenta.nombre as 'Nombre', Cuenta.rut as 'RUT', Rol.nombre AS 'Rol' FROM Cuenta
-      INNER JOIN RolesDeCuenta ON Cuenta.rut = RolesDeCuenta.Cuenta_rut
-      INNER JOIN Rol ON RolesDeCuenta.Roles_id_rol = Rol.id_rol
-      WHERE Cuenta.rut = '${rut}';`;
-      
-      return await conexion.query(sql_Usuario);
-};
-
 const PerfilUsuario = async(rut) =>{
       let sql_PerfilUsuario = `
       SELECT * FROM Cuenta
@@ -29,6 +19,5 @@ const PerfilUsuario = async(rut) =>{
 
 module.exports.cuentaHelper = {
       VerificarUsuarioSistema,
-      DatosUsuario,
       PerfilUsuario
 };

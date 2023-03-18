@@ -5,7 +5,7 @@ const { authToken } = require("../middlewares/autenticacion.jwt");
 
 router.get("", marcasController.mostrarTodasMarcas);
 router.post("/registrar", marcasController.registrarMarca);
-router.put("/modificar", marcasController.modificarMarca);
-router.delete("/eliminar/:id_marcas", marcasController.eliminarMarca);
+//router.put("/modificar", marcasController.modificarMarca);
+//router.delete("/eliminar/:id_marcas", marcasController.eliminarMarca);
 
 module.exports = router;

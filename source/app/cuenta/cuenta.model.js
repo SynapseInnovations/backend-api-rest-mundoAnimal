@@ -45,28 +45,27 @@ const IniciarSesion = async(usuario) => {
       
       const { rut , clave } = usuario;
 
-      if (!validateRUT(rut)) {
+      /*if (!validateRUT(rut)) {
             throw new TypeError("El RUT ingresado no es válido");
-      }
+      }*/
 
       if (await cuentaHelper.VerificarUsuarioSistema(rut)) {
             throw new TypeError("No existe el usuario.");
       }
 
-      const userEncontrado = await rolModel.ObtenerRol(rut);
-      
-      //TODO: REVISAR DESPUÉS
-      if (!await Cuenta.CompararClave(clave, userEncontrado.clave)) {
-            throw new TypeError("Clave incorrecta");
+      const userEncontrado = await cuentaHelper.PerfilUsuario(rut);
+
+      if (!(await Cuenta.CompararClave(clave, userEncontrado[0].clave))) {
+        throw new TypeError("Clave incorrecta");
       }
       
       const token = jwt.sign({ id: userEncontrado.rut }, process.env.SECRET, {
             expiresIn: 86400, // 24 Horas
       });
-      const data = await cuentaHelper.PerfilUsuario(rut);
-      data.push({'token':token})
+      //const data = await cuentaHelper.PerfilUsuario(rut);
+      userEncontrado.push({ token: token });
 
-      return data;
+      return userEncontrado;
 };
 
 const Listar = async()=>{

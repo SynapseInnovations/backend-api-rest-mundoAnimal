@@ -1,10 +1,8 @@
-const { Marca } = require("../../../class/marca")
 const { marcaModel } = require("./marca.model");
 
 const registrarMarca = async(req, res)=>{
       try{
-            const marca = new Marca(req.body)
-            let marcaRegistrada = await marcaModel.Registrar(marca);
+            let marcaRegistrada = await marcaModel.Registrar(req.body);
             return res.json({
               error: false,
               msg: "Se ha registrado la Marca",
@@ -24,7 +22,7 @@ const mostrarTodasMarcas = async(req, res)=>{
             let marcasRegistradas = await marcaModel.MostrarTodo();
             return res.json({
                   error: false,
-                  msg: "",
+                  msg: "Lista de todas las marcas del sistema",
                   data: marcasRegistradas
             });
       }catch(error){
@@ -56,7 +54,7 @@ const eliminarMarca = async(req, res)=>{
       try{
             return res.json({
                   error: false,
-                  msg: "",
+                  msg: "Se ha eliminado la marca",
                   data: []
             });
       }catch(error){

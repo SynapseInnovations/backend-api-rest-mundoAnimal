@@ -9,7 +9,7 @@ router.post("/agregar",[authToken.VerificarToken, authToken.VerificarVendedorOrA
 router.delete("/eliminar/:codigo",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
 
 // FALTA POR HACER
-router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
+//router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
 
 /*
 // Producto - Animal
