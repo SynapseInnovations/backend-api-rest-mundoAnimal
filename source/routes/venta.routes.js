@@ -5,6 +5,6 @@ const { authToken } = require("../middlewares/autenticacion.jwt");
 
 // Venta
 router.get("", ventaController.mostrarVentas);
-router.post("/registrar_venta", ventaController.registrarVenta);
+router.post("/registrar_venta",[], ventaController.registrarVenta); // Agregar la weaita xD
 
 module.exports = router;

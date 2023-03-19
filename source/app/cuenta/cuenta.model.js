@@ -40,14 +40,11 @@ const Registrar = async(usuario) =>{
 };
 
 const IniciarSesion = async(usuario) => {
-      //TODO: RECORDAR QUE EL FRONTEND ENVIA CLAVES ENCRIPTADAS
-      // POR TANTO SE DEBE DESCIFRAR ANTES DE TRABAJARLAS.
-      
       const { rut , clave } = usuario;
 
-      /*if (!validateRUT(rut)) {
+      if (!validateRUT(rut)) {
             throw new TypeError("El RUT ingresado no es válido");
-      }*/
+      }
 
       if (await cuentaHelper.VerificarUsuarioSistema(rut)) {
             throw new TypeError("No existe el usuario.");
@@ -62,9 +59,8 @@ const IniciarSesion = async(usuario) => {
       const token = jwt.sign({ id: userEncontrado.rut }, process.env.SECRET, {
             expiresIn: 86400, // 24 Horas
       });
-      //const data = await cuentaHelper.PerfilUsuario(rut);
-      userEncontrado.push({ token: token });
 
+      userEncontrado.push({ token: token });
       return userEncontrado;
 };
 
