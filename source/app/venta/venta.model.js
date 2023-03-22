@@ -5,14 +5,19 @@ const { productoModel } = require("../producto/producto.model");
 const Registrar = async(productos) =>{
       const nuevaVenta = new Venta(productos)
       const inventario = await productoModel.VerProductos();
+      /*if(await nuevaVenta.DescuentoInventario()){
+            throw new TypeError("A B C");
+      }*/
+
       const boleta =  await nuevaVenta.GenerarBoleta(inventario);
+      
 
       if(boleta.precio_total != nuevaVenta.total){
             throw new TypeError("El precio total difiere con el registro calculado");
       }
 
       const ventaRegistrada = await nuevaVenta.RegistrarVenta(boleta);
-      return await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta);
+      return await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta, inventario);
 };
 
 const VerVentas = async() =>{

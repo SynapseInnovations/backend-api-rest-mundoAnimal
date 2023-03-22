@@ -50,9 +50,9 @@ const IniciarSesion = async(usuario) => {
             throw new TypeError("No existe el usuario.");
       }
 
-      const userEncontrado = await cuentaHelper.PerfilUsuario(rut);
-
-      if (!(await Cuenta.CompararClave(clave, userEncontrado[0].clave))) {
+      const [userEncontrado] = await cuentaHelper.PerfilUsuario(rut);
+      console.log(userEncontrado.rut)
+      if (!(await Cuenta.CompararClave(clave, userEncontrado.clave))) {
         throw new TypeError("Clave incorrecta");
       }
       
@@ -60,8 +60,10 @@ const IniciarSesion = async(usuario) => {
             expiresIn: 86400, // 24 Horas
       });
 
-      userEncontrado.push({ token: token });
-      return userEncontrado;
+      let inicio_sesion = []
+      inicio_sesion.push(userEncontrado);
+      inicio_sesion.push({token: token});
+      return inicio_sesion;
 };
 
 const Listar = async()=>{

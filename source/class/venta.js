@@ -43,30 +43,61 @@ class Venta {
       RegistrarVenta = async(boleta) =>{
             const sql_RegistrarVenta = `INSERT INTO Venta (total, fecha, Vendedor_rut, TipoVenta_id)
             VALUES (${boleta.precio_total},'${this.fecha}','${this.vendedor_rut}',${this.tipoventa_id});`;
+      
             const registroVenta = await conexion.query(sql_RegistrarVenta);
             return registroVenta;
       };
 
-      InsertarVentaProducto = async(numero_boleta, boleta) =>{
-            let sql_RegistrarProductoVenta = `INSERT INTO VentaDeProducto (numero_boleta, codigo_barra, venta_unitaria, cantidad, kilos) VALUES ?`;
+      InsertarVentaProducto = async(numero_boleta, boleta, inventario) =>{
+            let sql_ActualizarInventario = `UPDATE Producto SET unidades = ? WHERE codigo_barra = ?`;
 
-            let sql_values = new Array();
+            let values_ProductoVenta = [];
+            let values_AI = new Array();
+            let values_AI2 = new Array();
+
             for(let i=0; i < boleta.productos.length ;i++){
-                  let values = new Array()
-                  values.push(numero_boleta);
-                  values.push(boleta.productos[i].codigo_barra);
+                  
+                  let [valuesFilter] = inventario.filter( (producto) => producto.codigo_barra == boleta.productos[i].codigo_barra );
+
+                  let values_PV = new Array();
+
+                  values_PV.push(numero_boleta);
+                  values_PV.push(boleta.productos[i].codigo_barra);
+                  
+
                   if(boleta.productos[i].venta_unitaria){
-                        values.push(1);
-                        values.push(boleta.productos[i].cantidad);
-                        values.push(null)
+
+                        values_AI.push([valuesFilter.unidades - boleta.productos[i].cantidad])
+                        values_AI2.push([boleta.productos[i].codigo_barra]);
+
                   }else{
-                        values.push(0);
-                        values.push(null);
-                        values.push(boleta.productos[i].kilo);
+                        values_PV.push(0);
+                        values_PV.push(null);
+                        values_PV.push(boleta.productos[i].kilo);
                   }
-                  sql_values.push(values);
+                  values_ProductoVenta.push(values_PV);
             }
-            return await conexion.query(sql_RegistrarProductoVenta, [sql_values])
+            const ActualizarInventario = await conexion.query(sql_ActualizarInventario, [...values_AI,...values_AI2]);
+            return ActualizarInventario;
+      };
+
+      ChequearInventario = async(inventario)=>{
+            let respuesta = {};
+            for(let i = 0; i < this.productos.length ;i++){
+                  let [productoFilter] = inventario.filter( product => product.codigo_barra == this.productos[i].codigo_barra )
+                  if (productoFilter.unidades < this.productos[i].cantidad){
+                        respuesta.stock = false;
+                        respuesta.producto_nombre = productoFilter.nombre
+                        respuesta.cantidad = productoFilter.unidades
+                        return respuesta;
+                  }
+            }
+            respuesta.stock = true;
+            return respuesta;
+      };
+
+      DescuentoInventario = async ()=>{
+
       };
 }
 

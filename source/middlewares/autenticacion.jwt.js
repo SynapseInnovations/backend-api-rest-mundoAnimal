@@ -12,7 +12,6 @@ const VerificarToken = async (req, res, next) => {
             }
             const verificacionJwt = jwt.verify(token, process.env.SECRET);
             req.usuarioId = verificacionJwt.id;
-
             if (await cuentaHelper.VerificarUsuarioSistema(verificacionJwt.id)){
                   throw new TypeError("No existe el usuario");
             }

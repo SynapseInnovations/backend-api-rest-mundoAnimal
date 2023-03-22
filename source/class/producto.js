@@ -6,11 +6,6 @@ class Producto {
             this.cantidad = cantidad,
             this.kilo = kilo
       }
-
-      /*static EncriptarClave = async (clave) => {
-            const salt = await bcryptjs.genSalt(parseInt(process.env.SALT));
-            return await bcryptjs.hash(clave, salt);
-      };*/
 }
 
 module.exports = Producto;

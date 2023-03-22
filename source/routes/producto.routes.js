@@ -4,7 +4,7 @@ const { productoController } = require("../app/producto/producto.controller");
 const { authToken } = require("../middlewares/autenticacion.jwt");
 
 // Producto
-router.get("", [authToken.VerificarToken, authToken.VerificarUsuario ],productoController.mostrarProductos);
+router.get("", [authToken.VerificarToken, authToken.VerificarUsuario],productoController.mostrarProductos);
 router.post("/agregar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.agregarProducto);
 router.delete("/eliminar/:codigo",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
 
