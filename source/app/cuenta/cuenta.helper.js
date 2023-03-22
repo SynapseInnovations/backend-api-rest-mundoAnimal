@@ -15,7 +15,7 @@ const PerfilUsuario = async(rut) =>{
       WHERE rut = '${rut}'
       `
       return await conexion.query(sql_PerfilUsuario);
-}
+};
 
 module.exports.cuentaHelper = {
       VerificarUsuarioSistema,

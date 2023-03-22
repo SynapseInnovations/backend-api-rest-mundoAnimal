@@ -4,9 +4,9 @@ const { productoController } = require("../app/producto/producto.controller");
 const { authToken } = require("../middlewares/autenticacion.jwt");
 
 // Producto
-router.get("", [authToken.VerificarToken, authToken.VerificarUsuario],productoController.mostrarProductos);
-router.post("/agregar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.agregarProducto);
-router.delete("/eliminar/:codigo",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.eliminarProducto);
+router.get("", [authToken.VerificarToken],productoController.mostrarProductos);
+router.post("/agregar",[authToken.VerificarToken],productoController.agregarProducto);
+router.delete("/eliminar/:codigo",[authToken.VerificarToken],productoController.eliminarProducto);
 
 // FALTA POR HACER
 //router.put("/modificar",[authToken.VerificarToken, authToken.VerificarVendedorOrAdministrador],productoController.modificarProducto);
