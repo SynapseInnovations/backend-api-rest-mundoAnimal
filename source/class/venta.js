@@ -59,8 +59,10 @@ class Venta {
                   return [numero_boleta, producto.codigo_barra, venta_unitario, cantidad, kilos]
             });
             
-            const RegistrarProductoVenta = await conexion.query(sql_RegistrarProductoVenta, [values_ProductoVenta]);
-            //
+            return await conexion.query(sql_RegistrarProductoVenta, [values_ProductoVenta]);
+      };
+
+      ActualizarInventario = async (boleta, inventario)=>{
 
             let values_ActualizarInventario = [];
             for (const producto of boleta.productos) {
@@ -69,17 +71,21 @@ class Venta {
                         values_ActualizarInventario.push([inventarioProducto.unidades-producto.cantidad,inventarioProducto.codigo_barra])
                   }
             }
-            
-            console.log(values_ActualizarInventario)
+
             const sql_ActualizarInventario = `
             UPDATE Producto 
             SET unidades = CASE codigo_barra
-                  ${values_ActualizarInventario.map(([unidades , codigo_barra]) => `WHEN '${codigo_barra}' THEN ${unidades}`).join(' ')}
+                  ${values_ActualizarInventario.map(([unidades, codigo_barra]) => {
+                        if (unidades !== null) {
+                              return `WHEN '${codigo_barra}' THEN ${unidades}`;
+                        } else {
+                              return '';
+                        }
+                  }).join(' ')}
+                  ELSE unidades
             END`;
-            
-            await conexion.query(sql_ActualizarInventario);
 
-            return RegistrarProductoVenta;
+            return await conexion.query(sql_ActualizarInventario);
       };
 
       ChequearInventario = async(inventario)=>{
@@ -95,10 +101,6 @@ class Venta {
             }
             respuesta.stock = true;
             return respuesta;
-      };
-
-      DescuentoInventario = async ()=>{
-
       };
 }
 

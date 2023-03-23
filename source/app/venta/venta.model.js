@@ -13,7 +13,9 @@ const Registrar = async(productos) =>{
       }
 
       const ventaRegistrada = await nuevaVenta.RegistrarVenta(boleta);
-      return await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta, inventario);
+      const ventaProducto   =  await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta, inventario);
+      await nuevaVenta.ActualizarInventario(boleta, inventario);
+      return ventaProducto;
 };
 
 const VerVentas = async() =>{
