@@ -49,36 +49,37 @@ class Venta {
       };
 
       InsertarVentaProducto = async(numero_boleta, boleta, inventario) =>{
-            let sql_ActualizarInventario = `UPDATE Producto SET unidades = ? WHERE codigo_barra = ?`;
+            let sql_RegistrarProductoVenta = `INSERT INTO VentaDeProducto (numero_boleta, codigo_barra, venta_unitaria, cantidad, kilos) VALUES ?`;
 
-            let values_ProductoVenta = [];
-            let values_AI = new Array();
-            let values_AI2 = new Array();
+            const values_ProductoVenta = boleta.productos.map(producto => {
+                  const venta_unitario = producto.venta_unitaria ? 1 : 0;
+                  const cantidad = producto.venta_unitaria ? producto.cantidad : null;
+                  const kilos = producto.venta_unitaria ? null : producto.kilo;
 
-            for(let i=0; i < boleta.productos.length ;i++){
-                  
-                  let [valuesFilter] = inventario.filter( (producto) => producto.codigo_barra == boleta.productos[i].codigo_barra );
+                  return [numero_boleta, producto.codigo_barra, venta_unitario, cantidad, kilos]
+            });
+            
+            const RegistrarProductoVenta = await conexion.query(sql_RegistrarProductoVenta, [values_ProductoVenta]);
+            //
 
-                  let values_PV = new Array();
-
-                  values_PV.push(numero_boleta);
-                  values_PV.push(boleta.productos[i].codigo_barra);
-                  
-
-                  if(boleta.productos[i].venta_unitaria){
-
-                        values_AI.push([valuesFilter.unidades - boleta.productos[i].cantidad])
-                        values_AI2.push([boleta.productos[i].codigo_barra]);
-
-                  }else{
-                        values_PV.push(0);
-                        values_PV.push(null);
-                        values_PV.push(boleta.productos[i].kilo);
+            let values_ActualizarInventario = [];
+            for (const producto of boleta.productos) {
+                  if (producto.venta_unitaria) {
+                        const [inventarioProducto] = inventario.filter( productoInventario => productoInventario.codigo_barra === producto.codigo_barra)
+                        values_ActualizarInventario.push([inventarioProducto.unidades-producto.cantidad,inventarioProducto.codigo_barra])
                   }
-                  values_ProductoVenta.push(values_PV);
             }
-            const ActualizarInventario = await conexion.query(sql_ActualizarInventario, [...values_AI,...values_AI2]);
-            return ActualizarInventario;
+            
+            console.log(values_ActualizarInventario)
+            const sql_ActualizarInventario = `
+            UPDATE Producto 
+            SET unidades = CASE codigo_barra
+                  ${values_ActualizarInventario.map(([unidades , codigo_barra]) => `WHEN '${codigo_barra}' THEN ${unidades}`).join(' ')}
+            END`;
+            
+            await conexion.query(sql_ActualizarInventario);
+
+            return RegistrarProductoVenta;
       };
 
       ChequearInventario = async(inventario)=>{
