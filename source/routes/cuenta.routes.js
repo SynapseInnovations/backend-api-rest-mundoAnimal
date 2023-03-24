@@ -7,6 +7,6 @@ router.get("",cuentaController.mostrarUsuarios)
 router.post("/crear_cuenta",cuentaController.registrarUsuario);
 router.post("/iniciar_sesion", cuentaController.iniciarSesion);
 router.get("/asignar_rol",[authToken.VerificarToken ,authToken.VerificarAdministrador],cuentaController.asignarRol);
-router.get("/perfil",[authToken.VerificarToken,authToken.VerificarUsuario],cuentaController.perfilUsuario)
+router.get("/perfil",[authToken.VerificarToken],cuentaController.perfilUsuario)
 
 module.exports = router;

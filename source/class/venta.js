@@ -48,7 +48,7 @@ class Venta {
             return registroVenta;
       };
 
-      InsertarVentaProducto = async(numero_boleta, boleta, inventario) =>{
+      InsertarVentaProducto = async(numero_boleta, boleta) =>{
             let sql_RegistrarProductoVenta = `INSERT INTO VentaDeProducto (numero_boleta, codigo_barra, venta_unitaria, cantidad, kilos) VALUES ?`;
 
             const values_ProductoVenta = boleta.productos.map(producto => {
