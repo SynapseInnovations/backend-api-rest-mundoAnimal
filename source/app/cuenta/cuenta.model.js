@@ -86,21 +86,10 @@ const Listar = async()=>{
 
 const Perfil = async(rut)=>{
       const sql_Perfil = `
-            SELECT Cuenta.nombre, correo, direccion, GROUP_CONCAT(DISTINCT Rol.nombre ORDER BY Rol.nombre ASC) AS roles
-            FROM Cuenta 
-            INNER JOIN RolesDeCuenta ON Cuenta.rut = RolesDeCuenta.Cuenta_rut
-            INNER JOIN Rol ON RolesDeCuenta.Roles_id_rol = Rol.id_rol
-            WHERE Cuenta.rut = '${rut}'
-            GROUP BY Cuenta.nombre, correo, clave, direccion;
+            SELECT rut, nombre, correo, direccion, imagen, Rol_id FROM Cuenta WHERE Cuenta.rut = '${rut}';
       `;
 
-      let respuestaPerfil = await conexion.query(sql_Perfil);
-
-      await respuestaPerfil.forEach((cuenta)=>{
-            cuenta.roles = cuenta.roles.split(',');
-      })
-
-      return respuestaPerfil;
+      return await conexion.query(sql_Perfil);
 };
 
 module.exports.cuentaModel = {
