@@ -1,4 +1,5 @@
 const conexion = require("../../database");
+const { ventaHelper } = require("./venta.helper");
 const Venta = require("../../class/venta");
 const { productoModel } = require("../producto/producto.model");
 
@@ -26,10 +27,10 @@ const VerVentas = async() =>{
       JOIN VentaDeProducto vp ON vp.numero_boleta = v.numero_boleta
       JOIN Producto p ON p.codigo_barra = vp.codigo_barra
       `;
-
       const verVentas = await conexion.query(sql_VerVentas);
-      console.log(await verVentas);
-      return [await conexion.query(sql_VerVentas)];
+      const ventas = await ventaHelper.GenerandoListaVentas(verVentas);
+      
+      return ventas;
 };
 
 module.exports.ventaModel = {
