@@ -4,9 +4,9 @@ const registrarMarca = async(req, res)=>{
       try{
             let marcaRegistrada = await marcaModel.Registrar(req.body);
             return res.json({
-              error: false,
-              msg: "Se ha registrado la Marca",
-              data: marcaRegistrada
+                  error: false,
+                  msg: "Se ha registrado la Marca",
+                  data: marcaRegistrada
             });
       }catch(error){
             console.error(error)
@@ -17,7 +17,7 @@ const registrarMarca = async(req, res)=>{
       }
 };
 
-const mostrarTodasMarcas = async(req, res)=>{
+const mostrarMarcas = async(req, res)=>{
       try{
             let marcasRegistradas = await marcaModel.MostrarTodo();
             return res.json({
@@ -68,7 +68,7 @@ const eliminarMarca = async(req, res)=>{
 
 module.exports.marcasController = {
       registrarMarca,
-      mostrarTodasMarcas,
+      mostrarMarcas,
       modificarMarca,
       eliminarMarca
 }

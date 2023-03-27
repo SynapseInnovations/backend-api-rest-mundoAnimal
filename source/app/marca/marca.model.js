@@ -1,4 +1,4 @@
-const conexion = require("../../../database");
+const conexion = require("../../database");
 
 const Registrar = async(marca) => {
       let sql_registrarMarca = 

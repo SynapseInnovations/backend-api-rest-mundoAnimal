@@ -19,12 +19,6 @@ router.post("/animal/registrar");
 router.put("/animal/modificar")
 router.delete("/animal/eliminar")
 
-// Producto - Categoria
-router.get("/categoria");
-router.post("/categoria/registrar");
-router.put("/categoria/modificar");
-router.delete("/categoria/eliminar");
-
 // Producto - Marca
 router.get("/marca");
 router.post("/marca/registrar");
