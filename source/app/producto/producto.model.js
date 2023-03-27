@@ -3,11 +3,9 @@ const conexion = require("../../database");
 
 const Agregar = async(producto) => {
       const nuevoProducto = new Producto(producto)
-
       if (!await nuevoProducto.VerificarExistencia()) {
             throw new TypeError("El producto ya existe.");
       }
-      
       return await nuevoProducto.Registrar();
 };
 

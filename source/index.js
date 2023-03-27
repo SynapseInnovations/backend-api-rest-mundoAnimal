@@ -3,6 +3,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { initialSetup } = require("./libs/initialSetup");
+const path = require("path");
+
 
 require("dotenv").config({ path: __dirname + "/../.env" });
 
@@ -18,6 +20,8 @@ app.use(cors());
 app.use(express.json()); 
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(bodyParser.urlencoded({ limit: "2mb", extended: true }));
+console.log(__dirname)
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 /**Rutas*/ 
 app.use(require("./routes"));

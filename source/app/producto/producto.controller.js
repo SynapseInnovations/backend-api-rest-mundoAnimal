@@ -17,7 +17,11 @@ const mostrarProductos = async(req,res) =>{
 
 const agregarProducto = async(req, res) =>{
       try{
-            let consulta_insercionProducto = await productoModel.Agregar(req.body);
+            console.log(req.body)
+            console.log("---")
+            console.log(req.files)
+            consulta_insercionProducto = "xd";
+            //let consulta_insercionProducto = await productoModel.Agregar(req.body);
             return res.json({
                   error: false,
                   msg: "Se ha ingresado el producto de forma exitosa",
