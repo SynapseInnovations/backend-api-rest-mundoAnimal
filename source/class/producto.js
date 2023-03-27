@@ -35,7 +35,6 @@ class Producto {
             VALUES ('${this.codigo_barra}','${this.nombre}',${this.unidades},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id})`;
             return await conexion.query(sql_agregarProducto);
       };
-
 }
 
 module.exports = Producto;

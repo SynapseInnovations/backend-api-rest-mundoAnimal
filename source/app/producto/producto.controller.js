@@ -19,7 +19,7 @@ const agregarProducto = async(req, res) =>{
       try{
             console.log(req.body)
             console.log("---")
-            console.log(req.files)
+            console.log(req.file)
             consulta_insercionProducto = "xd";
             //let consulta_insercionProducto = await productoModel.Agregar(req.body);
             return res.json({

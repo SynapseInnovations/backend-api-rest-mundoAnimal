@@ -10,8 +10,15 @@ const Agregar = async(producto) => {
 };
 
 const VerProductos = async() =>{
-      let sql_verProducto = `SELECT * FROM Producto`;
-      return await conexion.query(sql_verProducto);
+      const sql_mostrarProducto = `
+      SELECT P.codigo_barra, P.nombre, P.unidades, P.descripcion, P.precio_kilo, P.precio_unitario, P.imagen, 
+      C.nombre Categoria, C.id categoria_id, 
+      M.nombre Marca, M.id marca_id
+      FROM Producto AS P
+      INNER JOIN Marca AS M ON P.Marca_id = M.id
+      INNER JOIN Categoria AS C ON P.Categoria_id = C.id
+      `;
+      return await conexion.query(sql_mostrarProducto);
 };
 
 const Eliminar = async(codigo) => {
