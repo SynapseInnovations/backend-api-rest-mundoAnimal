@@ -14,10 +14,8 @@ class Cuenta {
       }
 
       Registrar = async(file) => {
-            if(file){
-                  this.imagen = `http://localhost:10905/public/Cuentas/${file.filename}`.trim();
-            }
-            console.log(this.imagen)
+            this.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
+            
             const sql_RegistrarUsuario = `
             INSERT INTO Cuenta(rut, nombre, correo, clave, direccion, imagen, Rol_id)
             VALUES ('${this.rut}','${this.nombre}','${this.correo}','${await Cuenta.EncriptarClave(this.clave)}','${this.direccion}','${this.imagen}','${this.Rol_id}');
