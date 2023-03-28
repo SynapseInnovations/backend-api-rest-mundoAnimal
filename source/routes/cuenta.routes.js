@@ -9,6 +9,6 @@ router.get("",cuentaController.mostrarUsuarios)
 router.post("/crear_cuenta",[imagenFormat.Cuenta.single('imagen')],cuentaController.registrarUsuario);
 router.post("/iniciar_sesion", cuentaController.iniciarSesion);
 router.get("/perfil",[authToken.VerificarToken],cuentaController.perfilUsuario)
-router.post("/modificar", [authToken.VerificarToken,imagenFormat.imagenCuenta.single('imagen')], cuentaController.modificarUsuario)
+router.post("/modificar", [authToken.VerificarToken,imagenFormat.Cuenta.single('imagen')], cuentaController.modificarUsuario)
 
 module.exports = router;
