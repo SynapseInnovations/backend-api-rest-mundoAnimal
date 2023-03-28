@@ -20,7 +20,7 @@ const mostrarUsuarios = async(req,res) =>{
 
 const registrarUsuario = async(req, res) =>{
       try{
-            let consulta_registrarUsuario = await cuentaModel.Registrar(req.body);
+            let consulta_registrarUsuario = await cuentaModel.Registrar(req.body, req.file);
             return res.status(200).json({
                   error: false,
                   msg: "Usuario creado exitosamente",

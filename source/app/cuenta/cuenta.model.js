@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { validateRUT } = require("validar-rut");
 const  Cuenta  = require("../../class/cuenta")
 
-const Registrar = async(usuario) =>{
+const Registrar = async(usuario, file) =>{
       nuevoUsuario = new Cuenta(usuario)
       const rut = nuevoUsuario.rut;
 
@@ -16,7 +16,7 @@ const Registrar = async(usuario) =>{
         throw new TypeError("El usuario ya existe");
       }
 
-      await nuevoUsuario.Registrar();
+      await nuevoUsuario.Registrar(file);
       const token = jwt.sign({ rut }, process.env.SECRET, {
             expiresIn: 86400 // 24 Horas
       });
