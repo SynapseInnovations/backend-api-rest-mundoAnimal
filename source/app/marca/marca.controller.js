@@ -2,7 +2,7 @@ const { marcaModel } = require("./marca.model");
 
 const registrarMarca = async(req, res)=>{
       try{
-            let marcaRegistrada = await marcaModel.Registrar(req.body);
+            let marcaRegistrada = await marcaModel.Registrar(req.body, req.file);
             return res.json({
                   error: false,
                   msg: "Se ha registrado la Marca",

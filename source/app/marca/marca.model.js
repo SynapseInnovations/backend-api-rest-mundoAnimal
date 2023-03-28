@@ -1,7 +1,9 @@
 const conexion = require("../../database");
 
-const Registrar = async(marca) => {
-      let sql_registrarMarca = 
+const Registrar = async(marca, file) => {
+      marca.logo = `${process.env.HOST}/public/marcas/${file.filename}`;
+      console.log(marca.logo)
+      const sql_registrarMarca = 
       `INSERT INTO Marca (nombre, logo) 
       VALUES ('${marca.nombre}','${marca.logo}');
       `

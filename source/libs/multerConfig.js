@@ -24,16 +24,16 @@ const marca = multer.diskStorage({
             cb(null, path.join(__dirname, "../public", "marcas"));
       },
       filename: function (req, file, cb) {
-            cb(null, req.body.id + path.extname(file.originalname));
+            cb(null, req.body.nombre + path.extname(file.originalname));
       },
 });
 
-const imagenProducto = multer({ storage: producto });
-const imagenCuenta = multer({ storage: cuenta});
-const imagenMarca = multer({ storage: marca});
+const Producto = multer({ storage: producto });
+const Cuenta = multer({ storage: cuenta});
+const Marca = multer({ storage: marca});
 
 module.exports.imagenFormat = {
-      imagenCuenta,
-      imagenProducto,
-      imagenMarca
+      Cuenta,
+      Producto,
+      Marca
 }
