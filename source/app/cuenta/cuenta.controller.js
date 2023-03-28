@@ -70,7 +70,7 @@ const perfilUsuario = async(req,res) =>  {
 
 const modificarUsuario = async(req, res) =>{
       try{
-            const consulta_modificarUsuario = await cuentaModel.Modificar(req.body);
+            const consulta_modificarUsuario = await cuentaModel.Modificar(req.body, req.file);
             return res.status(200).json({
                   error: false,
                   msg: "Usuario modificado exitosamente",

@@ -23,8 +23,9 @@ class Cuenta {
             return await conexion.query(sql_RegistrarUsuario);
       };
 
-      Modificar = async() => {
-            const sql_ModificarUsuario = `
+      Modificar = async(file) => {
+            this.imagen = file ? `${process.env.HOST}/public/cuentas/${file.filename}`: this.imagen; //req.body.rut + path.extname(file.originalname)
+            const sql_ModificarUsuario = ` 
             UPDATE Cuenta
             SET nombre = '${this.nombre}', correo = '${this.correo}', clave = '${await Cuenta.EncriptarClave(this.clave)}', 
             direccion = '${this.direccion}', imagen = '${this.imagen}', Rol_id = '${this.Rol_id}'

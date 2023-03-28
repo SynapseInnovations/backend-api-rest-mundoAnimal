@@ -52,10 +52,11 @@ const IniciarSesion = async(usuario) => {
       return inicio_sesion;
 };
 
-const Modificar = async(usuario) =>{
+const Modificar = async(usuario, file) =>{
       modificarUsuario = new Cuenta(usuario);
+      const rut = modificarUsuario.rut;
 
-      if (!validateRUT(modificarUsuario.rut)) {
+      if (!validateRUT(rut)) {
             throw new TypeError("El RUT ingresado no es válido");
       }
 
@@ -63,7 +64,7 @@ const Modificar = async(usuario) =>{
             throw new TypeError("No existe el usuario.");
       }
 
-      return await modificarUsuario.Modificar();
+      return await modificarUsuario.Modificar(file);
 };
 
 module.exports.cuentaModel = {
