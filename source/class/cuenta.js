@@ -44,7 +44,7 @@ class Cuenta {
       static ListaUsuarios = async() => {
             const sql_ListaUsuarios = 
             `SELECT C.rut, C.nombre, C.correo, C.direccion, 
-            C.imagen, C.clave, C.Rol_id  R.nombre rol
+            C.imagen, C.clave, C.Rol_id, R.nombre rol
             FROM Cuenta AS C
             INNER JOIN Rol AS R ON R.id = C.Rol_id
             `;
