@@ -1,16 +1,16 @@
 const { cuentaModel } = require("./cuenta.model");
-const { rolModel } = require("./rol/rol.model")
-const { cuentaHelper } = require("./cuenta.helper");
+const Cuenta = require("../../class/cuenta");
 
 const mostrarUsuarios = async(req,res) =>{
       try{
-            let consulta_mostrarUsuarios = await cuentaModel.Listar();
+            const consulta_mostrarUsuarios = await Cuenta.ListaUsuarios();
             return res.status(200).json({
                   error: false,
                   msg: "Lista de todos los usuarios del sistema",
                   data: consulta_mostrarUsuarios
             });
       }catch(error){
+            console.error(error);
             return res.status(400).json({
               error: true,
               msg: "" + error.message,
@@ -27,7 +27,7 @@ const registrarUsuario = async(req, res) =>{
                   token: consulta_registrarUsuario
             });
       }catch(error){
-            //console.error(error);
+            console.error(error);
             return res.status(400).json({
                   error: true,
                   msg: ''+error.message
@@ -52,31 +52,9 @@ const iniciarSesion = async(req,res)=>{
       }
 };
 
-const asignarRol = async(req,res) => {
-      try{
-            const rut = req.query.rut;
-            const rol = req.query.rol;
-            
-            await rolModel.AsignarRol(rut, rol);
-
-            const datosUsuario = await cuentaHelper.DatosUsuario(rut)
-
-            return res.status(200).json({
-                  error: false,
-                  msg: `Al usuario ${rut} se le ha asignado el rol de ${rol}`,
-                  data: datosUsuario
-            });
-      }catch(error){
-            return res.status(400).json({
-                  error: true,
-                  msg: "" + error.message,
-            });
-      }
-};
-
 const perfilUsuario = async(req,res) =>  {
       try{
-            const consulta_perfilUsuario = await cuentaModel.Perfil(req.query.rut)
+            const consulta_perfilUsuario = await Cuenta.Perfil(req.query.rut);
             return res.status(200).json({
                   error: false,
                   msg: `Datos del usuario ${req.query.rut}`,
@@ -90,10 +68,27 @@ const perfilUsuario = async(req,res) =>  {
       }
 };
 
+const modificarUsuario = async(req, res) =>{
+      try{
+            const consulta_modificarUsuario = await cuentaModel.Modificar(req.body);
+            return res.status(200).json({
+                  error: false,
+                  msg: "Usuario modificado exitosamente",
+                  token: consulta_modificarUsuario
+            });
+      }catch(error){
+            console.error(error);
+            return res.status(400).json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
+
 module.exports.cuentaController = {
       mostrarUsuarios,
       registrarUsuario,
       iniciarSesion,
-      asignarRol,
+      modificarUsuario,
       perfilUsuario
 };

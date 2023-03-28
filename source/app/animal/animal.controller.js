@@ -4,9 +4,9 @@ const mostrarAnimal = async (req,res) => {
       try{
             const listaAnimales = await animalModel.Mostrar();
             return res.status(200).json({
-              error: false,
-              msg: "Lista de todos los tipos de animales.",
-              data: listaAnimales,
+                  error: false,
+                  msg: "Lista de todos los tipos de animales.",
+                  data: listaAnimales,
             });
       }catch(error){
             console.log(error);

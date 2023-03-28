@@ -9,15 +9,6 @@ const VerificarUsuarioSistema = async (rut) =>{
       return respuesta[0].Existe;
 };
 
-const PerfilUsuario = async(rut) =>{
-      let sql_PerfilUsuario = `
-      SELECT * FROM Cuenta
-      WHERE rut = '${rut}'
-      `
-      return await conexion.query(sql_PerfilUsuario);
-};
-
 module.exports.cuentaHelper = {
-      VerificarUsuarioSistema,
-      PerfilUsuario
+      VerificarUsuarioSistema
 };

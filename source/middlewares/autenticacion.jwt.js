@@ -67,7 +67,7 @@ const VerificarAdministrador = async (req, res, next) => {
       }
 };
 
-const VerificarVendedor = async (req, res, next) => {
+const VerificarOperador = async (req, res, next) => {
       try {
             const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
@@ -88,7 +88,7 @@ const VerificarVendedor = async (req, res, next) => {
       }
 };
 
-const VerificarVendedorOrAdministrador = async(req, res, next) => {
+const VerificarOperadorOrAdministrador = async(req, res, next) => {
       try {
             const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
@@ -114,6 +114,6 @@ module.exports.authToken = {
       VerificarToken,
       VerificarUsuario,
       VerificarAdministrador,
-      VerificarVendedor,
-      VerificarVendedorOrAdministrador
+      VerificarOperador,
+      VerificarOperadorOrAdministrador
 };

@@ -20,7 +20,6 @@ app.use(cors());
 app.use(express.json()); 
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(bodyParser.urlencoded({ limit: "2mb", extended: true }));
-console.log(__dirname)
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 /**Rutas*/ 
