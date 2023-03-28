@@ -8,6 +8,7 @@ const mostrarProductos = async(req,res) =>{
                   data: consulta_mostrarProductos
             });
       }catch(error){
+            console.error(error);
             return res.json({
                   error: true,
                   msg: ''+error.message
@@ -17,11 +18,7 @@ const mostrarProductos = async(req,res) =>{
 
 const agregarProducto = async(req, res) =>{
       try{
-            console.log(req.body)
-            console.log("---")
-            console.log(req.file)
-            consulta_insercionProducto = "xd";
-            //let consulta_insercionProducto = await productoModel.Agregar(req.body);
+            let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file);
             return res.json({
                   error: false,
                   msg: "Se ha ingresado el producto de forma exitosa",

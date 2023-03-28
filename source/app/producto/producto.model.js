@@ -1,12 +1,12 @@
 const Producto = require("../../class/producto");
 const conexion = require("../../database");
 
-const Agregar = async(producto) => {
+const Agregar = async(producto, file) => {
       const nuevoProducto = new Producto(producto)
       if (!await nuevoProducto.VerificarExistencia()) {
             throw new TypeError("El producto ya existe.");
       }
-      return await nuevoProducto.Registrar();
+      return await nuevoProducto.Registrar(file);
 };
 
 const VerProductos = async() =>{
