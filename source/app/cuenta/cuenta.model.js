@@ -34,7 +34,9 @@ const IniciarSesion = async(usuario) => {
             throw new TypeError("No existe el usuario.");
       }
 
-      const [userEncontrado] = await Cuenta.DatosUsuario(rut);
+      const [userEncontrado] = await Cuenta.Perfil(rut);
+      console.log(userEncontrado.clave)
+      console.log(clave)
 
       if (!(await Cuenta.CompararClave(clave, userEncontrado.clave))) {
             throw new TypeError("Clave incorrecta");
