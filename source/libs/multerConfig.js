@@ -15,7 +15,7 @@ const cuenta = multer.diskStorage({
             cb(null, path.join(__dirname, "../public", "cuentas"));
       },
       filename: function (req, file, cb) {
-            cb(null, req.body.nombre + path.extname(file.originalname));  
+            cb(null, req.body.rut + path.extname(file.originalname));  
       }
 });
 
@@ -24,7 +24,7 @@ const marca = multer.diskStorage({
             cb(null, path.join(__dirname, "../public", "marcas"));
       },
       filename: function (req, file, cb) {
-            cb(null, req.body.nombre + path.extname(file.originalname));
+            cb(null, req.body.id + path.extname(file.originalname));
       },
 });
 
