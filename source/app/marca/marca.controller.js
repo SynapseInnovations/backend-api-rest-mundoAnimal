@@ -18,7 +18,6 @@ const mostrarMarcas = async(req, res) => {
 };
 const registrarMarca = async(req, res) =>{
       try{
-            console.log(req)
             const consulta_insercionMarca = await marcaModel.Registrar(req.body);
             return res.json({
                   error: false,

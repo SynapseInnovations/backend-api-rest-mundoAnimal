@@ -18,7 +18,6 @@ const mostrarCategorias = async(req, res) => {
 };
 const registrarCategoria = async(req, res) =>{
       try{
-            console.log(req)
             const consulta_insercionCategoria = await categoriaModel.Registrar(req.body);
             return res.json({
                   error: false,
