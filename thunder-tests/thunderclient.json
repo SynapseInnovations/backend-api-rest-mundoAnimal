@@ -17,7 +17,7 @@
     "_id": "0947a09a-cea2-468d-a592-e8732ccc3f42",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "13ac6562-d284-4e57-b910-20cb50f49dd6",
-    "name": "Mostrar Marcas",
+    "name": "Mostrar Marca",
     "url": "http://localhost:10905/marca",
     "method": "GET",
     "sortNum": 10000,
@@ -163,11 +163,11 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-31T03:42:52.768Z",
-    "modified": "2023-03-31T03:42:52.768Z",
+    "modified": "2023-03-31T22:58:48.480Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2Nzk5NzM1NjAsImV4cCI6MTY4MDA1OTk2MH0.wB21RHz0biYSpXc_p1GYC4XVrRsSpCGfRXftREVNuXg"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
       }
     ],
     "params": [],
@@ -177,15 +177,10 @@
       "form": [
         {
           "name": "nombre",
-          "value": "Catshow"
+          "value": "Catsus"
         }
       ],
-      "files": [
-        {
-          "name": "imagen",
-          "value": "c:\\Users\\gaboe\\Pictures\\unknown.png"
-        }
-      ]
+      "files": []
     },
     "tests": []
   },
@@ -346,8 +341,13 @@
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-03-31T03:42:52.776Z",
-    "modified": "2023-03-31T03:42:52.776Z",
-    "headers": [],
+    "modified": "2023-03-31T21:24:34.861Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -360,8 +360,13 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-03-31T03:42:52.777Z",
-    "modified": "2023-03-31T03:42:52.777Z",
-    "headers": [],
+    "modified": "2023-03-31T22:43:35.836Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -412,6 +417,177 @@
         }
       ],
       "files": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "54d6d87c-6673-48e3-8089-9ddf78d3e0d1",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "e6d51054-99e8-4dc3-94f8-22b46183fcae",
+    "name": "Registrar Categoría",
+    "url": "http://localhost:10905/categoria/registrar",
+    "method": "POST",
+    "sortNum": 35000,
+    "created": "2023-03-31T21:19:59.899Z",
+    "modified": "2023-03-31T22:07:52.914Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nombre",
+          "value": "marcelo"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "46ee4078-1c9c-4a98-b757-15e0f7e91373",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "e6d51054-99e8-4dc3-94f8-22b46183fcae",
+    "name": "Eliminar Categoría",
+    "url": "http://localhost:10905/producto/eliminar",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2023-03-31T21:20:05.540Z",
+    "modified": "2023-03-31T21:20:08.778Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6de12c4f-4182-4926-8a54-c557655e1350",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "e6d51054-99e8-4dc3-94f8-22b46183fcae",
+    "name": "Modificar Categoría",
+    "url": "http://localhost:10905/categoria/modificar",
+    "method": "PUT",
+    "sortNum": 52500,
+    "created": "2023-03-31T21:47:35.735Z",
+    "modified": "2023-03-31T22:30:57.824Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nombre",
+          "value": "sasaa"
+        },
+        {
+          "name": "id",
+          "value": "10"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "fbeafd59-5aa7-4b0a-9f9e-1c08c009801b",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "f2981a7d-1f15-425a-a88e-a012f3f0809e",
+    "name": "Registrar Animal",
+    "url": "http://localhost:10905/animal/registrar",
+    "method": "POST",
+    "sortNum": 85000,
+    "created": "2023-03-31T22:43:44.639Z",
+    "modified": "2023-03-31T22:44:31.601Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nombre",
+          "value": "zapato"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "f66c47a2-bd42-453b-80e1-f82b909a6521",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "f2981a7d-1f15-425a-a88e-a012f3f0809e",
+    "name": "Modificar Animal",
+    "url": "http://localhost:10905/animal/modificar",
+    "method": "PUT",
+    "sortNum": 90000,
+    "created": "2023-03-31T22:43:56.393Z",
+    "modified": "2023-03-31T22:44:57.539Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nombre",
+          "value": "sas"
+        },
+        {
+          "name": "id",
+          "value": "4"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "564cf7c9-aab2-4352-b0a6-54766013a058",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "13ac6562-d284-4e57-b910-20cb50f49dd6",
+    "name": "Modificar Marca",
+    "url": "http://localhost:10905/marca/modificar",
+    "method": "PUT",
+    "sortNum": 25000,
+    "created": "2023-03-31T22:59:06.846Z",
+    "modified": "2023-03-31T22:59:25.711Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyOTc4MzQsImV4cCI6MTY4MDM4NDIzNH0.tBkFMuLukk3P01Az21SWf33WUNWFvJ86HKFgukvLPm0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nombre",
+          "value": "sasaa"
+        },
+        {
+          "name": "id",
+          "value": "5"
+        }
+      ]
     },
     "tests": []
   }

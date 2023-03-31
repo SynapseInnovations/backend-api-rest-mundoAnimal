@@ -61,13 +61,46 @@ const marca = multer.diskStorage({
             fieldSize: 2000000 //2 MB
       }
 });
-
+const categoria = multer.diskStorage({
+      destination: function (req, file, cb) {
+            cb(null, path.join(__dirname, "../public", "categorias"));
+      },
+      filename: function (req, file, cb) {
+            cb(null, req.body.nombre + path.extname(file.originalname));
+      },
+      fileFilter: function(req, file, cb){
+            if(MIMETYPES.includes(file.mimetype)) cb(null, true);
+            else cb(new Error(`Solo se admiten imágenes del tipo ${MIMETYPES.join(' ')} estan permitidos.`));
+      },
+      limits:{
+            fieldSize: 2000000 //2 MB
+      }
+});
+const animal = multer.diskStorage({
+      destination: function (req, file, cb) {
+            cb(null, path.join(__dirname, "../public", "animal"));
+      },
+      filename: function (req, file, cb) {
+            cb(null, req.body.nombre + path.extname(file.originalname));
+      },
+      fileFilter: function(req, file, cb){
+            if(MIMETYPES.includes(file.mimetype)) cb(null, true);
+            else cb(new Error(`Solo se admiten imágenes del tipo ${MIMETYPES.join(' ')} estan permitidos.`));
+      },
+      limits:{
+            fieldSize: 2000000 //2 MB
+      }
+});
 const Producto = multer({ storage: producto });
 const Cuenta = multer({ storage: cuenta});
 const Marca = multer({ storage: marca});
+const Categoria = multer({ storage: categoria});
+const Animal = multer({ storage: animal});
 
 module.exports.imagenFormat = {
       Cuenta,
       Producto,
-      Marca
+      Marca,
+      Categoria,
+      Animal
 }

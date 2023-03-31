@@ -1,28 +1,21 @@
-const conexion = require("../../database");
+const Marca = require("../../class/marca");
+const conexion = require("../../database")
 
-const Registrar = async(marca, file) => {
-      marca.logo = `${process.env.HOST}/public/marcas/${file.filename}`;
-      console.log(marca.logo)
-      const sql_registrarMarca = 
-      `INSERT INTO Marca (nombre, logo) 
-      VALUES ('${marca.nombre}','${marca.logo}');
+const Mostrar = async(req, res) =>{
+      const sql_Mostrar = `
+      SELECT * FROM Marca
       `
-      await conexion.query(sql_registrarMarca);
+      return await conexion.query(sql_Mostrar)
+};
+const Registrar = async(marca) => {
+      const newMarca = new Marca(marca)
+      
+      return await newMarca.Registrar();
 };
 
-const MostrarTodo = async() => {
-      let sql_mostrarTodo = 
-      `
-      SELECT * FROM Marca;
-      `
-      return await conexion.query(sql_mostrarTodo);
-};
-
-const Modificar = async() => {
-      let sql_modificarMarca = 
-      `UPDATE Marca 
-      SET nombre = ''
-      `
+const Modificar = async(marca) =>{
+      const newMarca = new Marca(marca)
+      return await newMarca.Modificar();
 };
 
 const Eliminar = async() => {
@@ -31,7 +24,7 @@ const Eliminar = async() => {
 
 module.exports.marcaModel = {
       Registrar,
-      MostrarTodo,
+      Mostrar,
       Modificar,
       Eliminar
 }
