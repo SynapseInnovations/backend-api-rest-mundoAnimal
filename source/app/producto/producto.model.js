@@ -3,10 +3,22 @@ const conexion = require("../../database");
 
 const Agregar = async(producto, file) => {
       const nuevoProducto = new Producto(producto)
+      
       if (!await nuevoProducto.VerificarExistencia()) {
             throw new TypeError("El producto ya existe.");
       }
-      return await nuevoProducto.Registrar(file);
+
+      if(file==undefined){
+            nuevoProducto.imagen = "https://i.imgur.com/EBH7aDM.png";
+      }else{
+            nuevoProducto.imagen = `${process.env.HOST}/public/productos/${file.filename}`;
+      }
+      
+      return await nuevoProducto.Registrar();
+};
+
+const Modificar = async(producto, file) =>{
+      
 };
 
 const VerProductos = async() =>{
@@ -30,6 +42,7 @@ const Eliminar = async(codigo) => {
 
 module.exports.productoModel = {
       Agregar,
+      Modificar,
       VerProductos,
       Eliminar
 }

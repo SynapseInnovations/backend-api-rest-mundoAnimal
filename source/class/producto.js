@@ -22,12 +22,23 @@ class Producto {
       
       };
 
-      Registrar = async(file) =>{
-            this.imagen = `${process.env.HOST}/public/productos/${file.filename}`;
+      Registrar = async() =>{
             const sql_agregarProducto = `
             INSERT INTO Producto (codigo_barra, nombre, unidades, descripcion, precio_kilo, precio_unitario, imagen, Marca_id, Categoria_id)
             VALUES ('${this.codigo_barra}','${this.nombre}',${this.unidades},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id})`;
             return await conexion.query(sql_agregarProducto);
+      };
+
+      Modificar = async() => {
+            const sql_ModificarProducto = `
+            UPDATE Producto
+            SET nombre = '${this.nombre}', unidades = '${this.unidades}', 
+            descripcion = '${this.descripcion}', precio_kilo = '${this.precio_kilo}', 
+            precio_unitario = '${this.precio_unitario}', imagen = '${this.imagen}', 
+            Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}'
+            WHERE codigo_barra = '${this.codigo_barra}'
+            `
+            return await conexion.query(sql_ModificarProducto);
       };
 }
 

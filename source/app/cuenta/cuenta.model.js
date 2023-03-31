@@ -13,15 +13,43 @@ const Registrar = async(usuario, file) =>{
       }
 
       if (!(await cuentaHelper.VerificarUsuarioSistema(rut))) {
-        throw new TypeError("El usuario ya existe");
+            throw new TypeError("El usuario ya existe");
       }
 
-      await nuevoUsuario.Registrar(file);
+      if(file==undefined){
+            nuevoUsuario.imagen = "https://i.imgur.com/EBH7aDM.png";
+      }else{
+            nuevoUsuario.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
+      }
+
+      await nuevoUsuario.Registrar();
+
       const token = jwt.sign({ rut }, process.env.SECRET, {
             expiresIn: 86400 // 24 Horas
       });
       return token;
 };
+
+const Modificar = async(usuario, file) =>{
+      modificarUsuario = new Cuenta(usuario);
+
+      if (!validateRUT(modificarUsuario.rut)) {
+            throw new TypeError("El RUT ingresado no es válido");
+      }
+
+      if (await cuentaHelper.VerificarUsuarioSistema(modificarUsuario.rut)) {
+            throw new TypeError("No existe el usuario.");
+      }
+
+      if (file == undefined) {
+            modificarUsuario.imagen = "https://i.imgur.com/EBH7aDM.png";
+      } else {
+            modificarUsuario.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
+      }
+
+      return await modificarUsuario.Modificar();
+};
+
 
 const IniciarSesion = async(usuario) => {
       const { rut , clave } = usuario;
@@ -35,8 +63,6 @@ const IniciarSesion = async(usuario) => {
       }
 
       const [userEncontrado] = await Cuenta.Perfil(rut);
-      console.log(userEncontrado.clave)
-      console.log(clave)
 
       if (!(await Cuenta.CompararClave(clave, userEncontrado.clave))) {
             throw new TypeError("Clave incorrecta");
@@ -50,20 +76,6 @@ const IniciarSesion = async(usuario) => {
       inicio_sesion.push(userEncontrado);
       inicio_sesion.push({token: token});
       return inicio_sesion;
-};
-
-const Modificar = async(usuario) =>{
-      modificarUsuario = new Cuenta(usuario);
-
-      if (!validateRUT(modificarUsuario.rut)) {
-            throw new TypeError("El RUT ingresado no es válido");
-      }
-
-      if (await cuentaHelper.VerificarUsuarioSistema(modificarUsuario.rut)) {
-            throw new TypeError("No existe el usuario.");
-      }
-
-      return await modificarUsuario.Modificar();
 };
 
 module.exports.cuentaModel = {

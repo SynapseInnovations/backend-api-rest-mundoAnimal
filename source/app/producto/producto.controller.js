@@ -34,8 +34,14 @@ const agregarProducto = async(req, res) =>{
 
 const modificarProducto = async(req, res) =>{
       try{
-
+            const consulta_modificarProducto = await productoModel.Modificar(req.body, req.file)
+            return res.json({
+                  error: false,
+                  msg: `Se ha modificado con exito el producto ${req.body.rut}`,
+                  data: consulta_modificarProducto
+            })
       }catch(error){
+            console.log(error)
             return res.json({
                   error: true,
                   msg: "" + error.message,
