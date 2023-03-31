@@ -1,0 +1,59 @@
+[
+  {
+    "_id": "e6662d0f-8d3f-4ba8-ab61-f57e706ac2e1",
+    "colName": "sas",
+    "created": "2023-03-31T03:39:45.932Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "colName": "Mundo Animal",
+    "created": "2023-03-31T03:42:52.758Z",
+    "sortNum": 30000,
+    "folders": [
+      {
+        "_id": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
+        "name": "Producto",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.761Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "82b056e0-b936-4888-9b32-60ec86632177",
+        "name": "Cuenta",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.763Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "13ac6562-d284-4e57-b910-20cb50f49dd6",
+        "name": "Marca",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.764Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "9b93d5d3-55ea-4479-b8d0-d42d73c36a68",
+        "name": "Venta",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.765Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "e6d51054-99e8-4dc3-94f8-22b46183fcae",
+        "name": "Categoría",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.766Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "f2981a7d-1f15-425a-a88e-a012f3f0809e",
+        "name": "Animal",
+        "containerId": "",
+        "created": "2023-03-31T03:42:52.767Z",
+        "sortNum": 80000
+      }
+    ]
+  }
+]
