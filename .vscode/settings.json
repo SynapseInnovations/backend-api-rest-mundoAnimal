@@ -1,5 +1,5 @@
 {
       "thunder-client.saveToWorkspace": true,
       "thunder-client.httpLibrary": "axios",
-      "thunder-client.workspaceRelativePath": "Mundo-Animal"
+      "thunder-client.workspaceRelativePath": ""
 }
