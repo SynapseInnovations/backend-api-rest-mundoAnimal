@@ -6,7 +6,7 @@ const { animalController } = require("../app/animal/animal.controller")
 
 // Producto - Animal
 router.get("", [authToken.VerificarToken],animalController.mostrarAnimales);
-router.post("/registrar",[authToken.VerificarToken,imagenFormat.Animal.none()],animalController.registrarAnimal);
+router.post("/agregar",[authToken.VerificarToken,imagenFormat.Animal.none()],animalController.registrarAnimal);
 router.put("/modificar",[authToken.VerificarToken, imagenFormat.Animal.none()],animalController.modificarAnimal);
 //router.delete("/eliminar");
 

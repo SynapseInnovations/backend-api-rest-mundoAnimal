@@ -6,7 +6,7 @@ const { imagenFormat } = require("../libs/multerConfig")
 
 // Producto - Categoria
 router.get("", [authToken.VerificarToken],categoriasController.mostrarCategorias);
-router.post("/registrar",[authToken.VerificarToken,imagenFormat.Categoria.none()],categoriasController.registrarCategoria);
+router.post("/agregar",[authToken.VerificarToken,imagenFormat.Categoria.none()],categoriasController.registrarCategoria);
 router.put("/modificar",[authToken.VerificarToken, imagenFormat.Categoria.none()],categoriasController.modificarCategoria);
 //router.delete("/eliminar",[authToken.VerificarToken, imagenFormat.Categoria.none()],categoriasController.eliminarCategoria);
 
