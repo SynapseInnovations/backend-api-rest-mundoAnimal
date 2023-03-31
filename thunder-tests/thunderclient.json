@@ -22,11 +22,11 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-03-31T03:42:52.763Z",
-    "modified": "2023-03-31T03:42:52.763Z",
+    "modified": "2023-03-31T06:45:40.728Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2Nzk5NzM1NjAsImV4cCI6MTY4MDA1OTk2MH0.wB21RHz0biYSpXc_p1GYC4XVrRsSpCGfRXftREVNuXg"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyNDUxMDAsImV4cCI6MTY4MDMzMTUwMH0.rdMTOTjD0JpH2x1W7SweOi7j5WZCZIygz5I-N03VVfU"
       }
     ],
     "params": [],
@@ -207,12 +207,12 @@
     "_id": "e7da8296-3ab2-40b5-9b15-84039632d237",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
-    "name": "Agregar producto Copy",
-    "url": "http://localhost:10905/producto/agregar",
+    "name": "Modificar Producto",
+    "url": "http://localhost:10905/producto/modificar",
     "method": "POST",
     "sortNum": 25000,
     "created": "2023-03-31T03:42:52.770Z",
-    "modified": "2023-03-31T03:42:52.770Z",
+    "modified": "2023-03-31T07:18:11.814Z",
     "headers": [
       {
         "name": "token",
@@ -226,11 +226,11 @@
       "form": [
         {
           "name": "codigo_barra",
-          "value": "999878987"
+          "value": "5123123"
         },
         {
           "name": "nombre",
-          "value": "productCarrotxDD1"
+          "value": "editao"
         },
         {
           "name": "unidades",
@@ -256,8 +256,7 @@
           "name": "categoria_id",
           "value": "1"
         }
-      ],
-      "files": []
+      ]
     },
     "tests": []
   },
@@ -342,7 +341,7 @@
     "_id": "284e2747-496c-4b58-b369-31080c4884a3",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "e6d51054-99e8-4dc3-94f8-22b46183fcae",
-    "name": "Mostrar",
+    "name": "Mostrar Categoría",
     "url": "http://localhost:10905/categoria",
     "method": "GET",
     "sortNum": 70000,
@@ -356,7 +355,7 @@
     "_id": "0741f924-fce4-4cfb-ac13-c67ff95b4efe",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "f2981a7d-1f15-425a-a88e-a012f3f0809e",
-    "name": "Mostrar",
+    "name": "Mostrar Animal",
     "url": "http://localhost:10905/animal",
     "method": "GET",
     "sortNum": 80000,
