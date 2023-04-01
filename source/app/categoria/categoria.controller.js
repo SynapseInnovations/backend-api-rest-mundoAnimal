@@ -16,10 +16,43 @@ const mostrarCategorias = async(req, res) => {
             });
       }
 };
+const registrarCategoria = async(req, res) =>{
+      try{
+            const consulta_insercionCategoria = await categoriaModel.Registrar(req.body);
+            return res.json({
+                  error: false,
+                  msg: "Se ha ingresado la categoria de forma exitosa",
+                  data: consulta_insercionCategoria
+            })
+      }catch(error){
+            return res.json({
+                  error:true,
+                  msg: ''+error.message
+            });
+      }
+};
 
+const modificarCategoria = async(req, res) =>{
+      try{
+            const consulta_modificarCategoria = await categoriaModel.Modificar(req.body)
+            return res.json({
+                  error: false,
+                  msg: `Se ha modificado con exito la categoria ${req.body.id}`,
+                  data: consulta_modificarCategoria
+            })
+      }catch(error){
+            console.log(error)
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
 
 
 
 module.exports.categoriasController = {
-      mostrarCategorias
+      mostrarCategorias,
+      registrarCategoria,
+      modificarCategoria
 }

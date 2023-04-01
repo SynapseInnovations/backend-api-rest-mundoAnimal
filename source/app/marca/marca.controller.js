@@ -1,51 +1,50 @@
 const { marcaModel } = require("./marca.model");
 
-const registrarMarca = async(req, res)=>{
+const mostrarMarcas = async(req, res) => {
       try{
-            let marcaRegistrada = await marcaModel.Registrar(req.body, req.file);
-            return res.json({
-                  error: false,
-                  msg: "Se ha registrado la Marca",
-                  data: marcaRegistrada
+            const listaMarcas = await marcaModel.Mostrar();
+            return res.status(200).json({
+                  error:false,
+                  msg: "Lista de todas las marcas disponibles",
+                  data: listaMarcas
             });
       }catch(error){
-            console.error(error)
-            return res.json({
+            console.log(error)
+            return res.status(400).json({
                   error: true,
+                  msg: ''+ error.message
+            });
+      }
+};
+const registrarMarca = async(req, res) =>{
+      try{
+            const consulta_insercionMarca = await marcaModel.Registrar(req.body);
+            return res.json({
+                  error: false,
+                  msg: "Se ha ingresado la marca de forma exitosa",
+                  data: consulta_insercionMarca
+            })
+      }catch(error){
+            return res.json({
+                  error:true,
                   msg: ''+error.message
             });
       }
 };
 
-const mostrarMarcas = async(req, res)=>{
+const modificarMarca = async(req, res) =>{
       try{
-            let marcasRegistradas = await marcaModel.MostrarTodo();
+            const consulta_modificarMarca = await marcaModel.Modificar(req.body)
             return res.json({
                   error: false,
-                  msg: "Lista de todas las marcas del sistema",
-                  data: marcasRegistradas
-            });
+                  msg: `Se ha modificado con exito la marca ${req.body.id}`,
+                  data: consulta_modificarMarca
+            })
       }catch(error){
-            console.error(error)
+            console.log(error)
             return res.json({
                   error: true,
-                  msg: ''+error.message
-            });
-      }
-};
-
-const modificarMarca = async(req, res)=>{
-      try{
-            return res.json({
-                  error: false,
-                  msg: "",
-                  data: []
-            });
-      }catch(error){
-            console.error(error)
-            return res.json({
-                  error: true,
-                  msg: ''+error.message
+                  msg: "" + error.message,
             });
       }
 };

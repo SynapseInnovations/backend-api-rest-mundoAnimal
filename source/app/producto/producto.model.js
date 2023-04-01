@@ -20,16 +20,12 @@ const Agregar = async(producto, file) => {
 const Modificar = async(producto, file) =>{
       const modificarProducto = new Producto(producto)
 
-      if (!(await modificarProducto.VerificarExistencia())) {
-            throw new TypeError("El producto ya existe.");
-      }
-
       if(file==undefined){
             modificarProducto.imagen = "https://i.imgur.com/EBH7aDM.png";
       }else{
             modificarProducto.imagen = `${process.env.HOST}/public/productos/${file.filename}`;
       }
-
+      
       return await modificarProducto.Modificar();
 };
 
