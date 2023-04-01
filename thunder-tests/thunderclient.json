@@ -22,11 +22,11 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-03-31T03:42:52.763Z",
-    "modified": "2023-03-31T03:42:52.763Z",
+    "modified": "2023-03-31T03:53:55.872Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2Nzk5NzM1NjAsImV4cCI6MTY4MDA1OTk2MH0.wB21RHz0biYSpXc_p1GYC4XVrRsSpCGfRXftREVNuXg"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMzQ4MjksImV4cCI6MTY4MDMyMTIyOX0.ah72hO01oU9-kVwSkpA26NV4RlipRhq-Op7V1i_OV1s"
       }
     ],
     "params": [],
@@ -207,12 +207,12 @@
     "_id": "e7da8296-3ab2-40b5-9b15-84039632d237",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
-    "name": "Agregar producto Copy",
-    "url": "http://localhost:10905/producto/agregar",
+    "name": "Modificar producto",
+    "url": "http://localhost:10905/producto/modificar",
     "method": "POST",
     "sortNum": 25000,
     "created": "2023-03-31T03:42:52.770Z",
-    "modified": "2023-03-31T03:42:52.770Z",
+    "modified": "2023-03-31T03:51:37.372Z",
     "headers": [
       {
         "name": "token",
@@ -230,7 +230,7 @@
         },
         {
           "name": "nombre",
-          "value": "productCarrotxDD1"
+          "value": "999878987"
         },
         {
           "name": "unidades",
@@ -375,7 +375,7 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2023-03-31T03:42:52.778Z",
-    "modified": "2023-03-31T03:42:52.778Z",
+    "modified": "2023-03-31T04:04:50.175Z",
     "headers": [
       {
         "name": "token",

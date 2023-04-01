@@ -17,6 +17,7 @@ const VerificarToken = async (req, res, next) => {
             }
             next();
       }catch(error){
+            console.error(error)
             return res.status(401).json({
                   error: true,
                   msg: "" + error.message,
@@ -38,6 +39,7 @@ const VerificarUsuario = async (req,res,next) =>{
                   msg: "Solo los Usuario pueden acceder a esta función"
             })
       }catch(error){
+            console.error(error);
             return res.status(401).json({
                   error: true,
                   msg: "" + error.message,

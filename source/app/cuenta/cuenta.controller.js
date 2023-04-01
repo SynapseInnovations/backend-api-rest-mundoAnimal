@@ -12,8 +12,8 @@ const mostrarUsuarios = async(req,res) =>{
       }catch(error){
             console.error(error);
             return res.status(400).json({
-              error: true,
-              msg: "" + error.message,
+                  error: true,
+                  msg: "" + error.message,
             });
       }
 };
