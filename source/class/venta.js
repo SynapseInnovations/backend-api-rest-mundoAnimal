@@ -6,35 +6,33 @@ class Venta {
             this.fecha = fecha,
             this.vendedor_rut = vendedor_rut,
             this.tipoventa_id = tipoventa_id,
-            this.productos = productos
+            this.productos = JSON.parse(productos)
       }
 
       GenerarBoleta = async(inventario) =>{
             let boleta = {}
             let boletaProductos = []
             let precio_total = 0;
-
-            for(let i = 0; i < this.productos.length ; i++ ){
-                  let [productoFilter] = inventario.filter( product => product.codigo_barra == this.productos[i].codigo_barra )
+            this.productos.forEach(i => {
                   let productoObjeto = {};
-                  productoObjeto.nombre = productoFilter.nombre
-                  productoObjeto.codigo_barra = productoFilter.codigo_barra
-                  if(this.productos[i].unitario){     //TODO: UNITARIO
+                  productoObjeto.nombre = i.nombre
+                  productoObjeto.codigo_barra = i.codigo_barra
+                  if(i.isPrecioUnitario){
+                                                            //TODO: UNITARIO
                         productoObjeto.venta_unitaria = true;
-                        productoObjeto.cantidad =  this.productos[i].cantidad
-                        productoObjeto.precio_unitario = productoFilter.precio_unitario
-                        productoObjeto.precio_producto = productoObjeto.cantidad * productoFilter.precio_unitario
+                        productoObjeto.cantidad =  i.cantInput
+                        productoObjeto.precio_unitario = i.precio_unitario
+                        productoObjeto.precio_producto = i.cantInput * i.precio_unitario
 
                   }else{                              //TODO:KILO
                         productoObjeto.venta_unitaria = false;
-                        productoObjeto.kilo = this.productos[i].kilo
-                        productoObjeto.precio_kilo = productoFilter.precio_kilo
-                        productoObjeto.precio_producto = productoObjeto.kilo * productoFilter.precio_kilo
+                        productoObjeto.kilo = i.kgInput
+                        productoObjeto.precio_kilo = i.precio_kilo
+                        productoObjeto.precio_producto = i.kgInput * i.precio_kilo
                   }
-                  precio_total = productoObjeto.precio_producto + precio_total;
+                  precio_total += productoObjeto.precio_producto;
                   boletaProductos.push(productoObjeto);
-            }
-            
+            });
             boleta.productos = boletaProductos
             boleta.precio_total = precio_total
             return boleta;
