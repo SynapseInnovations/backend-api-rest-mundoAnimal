@@ -7,7 +7,7 @@ const Registrar = async(productos) =>{
       const nuevaVenta = new Venta(productos)
       const inventario = await productoModel.VerProductos();
 
-      const boleta =  await nuevaVenta.GenerarBoleta(inventario);
+      const boleta =  await nuevaVenta.GenerarBoleta();
 
       if(boleta.precio_total != nuevaVenta.total){
             throw new TypeError(`El precio total ${boleta.precio_total} difiere con el registro calculado (${nuevaVenta.total})`);
@@ -22,15 +22,24 @@ const Registrar = async(productos) =>{
 const VerVentas = async() =>{
 
       const sql_VerVentas = `
-      SELECT v.*, p.*, vp.*
-      FROM Venta v
-      JOIN VentaDeProducto vp ON vp.numero_boleta = v.numero_boleta
-      JOIN Producto p ON p.codigo_barra = vp.codigo_barra
+      SELECT V.*,  
+      (SELECT JSON_ARRAYAGG(JSON_OBJECT('id', id,
+      'codigo_barra', codigo_barra,
+      'numero_boleta', numero_boleta,
+      'venta_unitaria', venta_unitaria,
+      'nombre', nombre,
+      'cantidad', cantidad,
+      'precio_neto', precio_neto,
+      'precio_venta', precio_venta,
+      'Categoria_id', Categoria_id,
+      'Marca_id', Marca_id,
+      'Mascota_id', Mascota_id)) 
+      FROM ProductosVenta PV
+      WHERE PV.numero_boleta = V.numero_boleta) as productos
+      FROM Venta V
       `;
       const verVentas = await conexion.query(sql_VerVentas);
-      const ventas = await ventaHelper.GenerandoListaVentas(verVentas);
-      
-      return ventas;
+      return verVentas;
 };
 
 module.exports.ventaModel = {

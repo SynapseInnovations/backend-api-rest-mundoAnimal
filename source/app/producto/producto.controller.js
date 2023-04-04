@@ -16,6 +16,22 @@ const mostrarProductos = async(req,res) =>{
       }
 };
 
+const obtenerMantenedor= async(req,res) => {
+      try{
+            let consulta_mostrarMantenedor = await productoModel.ObtenerMantenedor();
+            return res.json({
+                  error: false,
+                  msg: "Se ha obtenido el mantenedor de una sola consulta",
+                  data: consulta_mostrarMantenedor
+            })
+      }catch(error){
+            return res.json({
+                  error:true,
+                  msg: ''+error.message
+            });
+      }
+};
+
 const agregarProducto = async(req, res) =>{
       try{
             let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file);
@@ -69,5 +85,6 @@ module.exports.productoController = {
       mostrarProductos,
       agregarProducto,
       modificarProducto,
-      eliminarProducto
+      eliminarProducto,
+      obtenerMantenedor
 };

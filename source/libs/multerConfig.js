@@ -65,13 +65,13 @@ const Producto = multer({ storage: producto });
 const Cuenta = multer({ storage: cuenta});
 const Marca = multer({ storage: marca});
 const Categoria = multer();
-const Animal = multer();
+const Mascota = multer();
 const Venta = multer();
-module.exports.imagenFormat = {
+module.exports.multerParser = {
       Cuenta,
       Producto,
       Marca,
       Categoria,
-      Animal,
+      Mascota,
       Venta
 }
