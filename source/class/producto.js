@@ -1,7 +1,7 @@
 const conexion = require("../database");
 
 class Producto {
-      constructor({codigo_barra, nombre, cantidad , descripcion, precio_kilo, precio_unitario, imagen,marca_id, categoria_id}){
+      constructor({codigo_barra, nombre, cantidad , descripcion, precio_kilo, precio_unitario, imagen,marca_id, categoria_id, mascota_id}){
             
             this.codigo_barra = codigo_barra,
             this.nombre = nombre,
@@ -12,6 +12,7 @@ class Producto {
             this.imagen = imagen,
             this.marca_id = marca_id,
             this.categoria_id = categoria_id
+            this.mascota_id = mascota_id
       }
 
       VerificarExistencia = async() =>{
@@ -24,8 +25,8 @@ class Producto {
 
       Registrar = async() =>{
             const sql_agregarProducto = `
-            INSERT INTO Producto (codigo_barra, nombre, cantidad, descripcion, precio_kilo, precio_unitario, imagen, Marca_id, Categoria_id)
-            VALUES ('${this.codigo_barra}','${this.nombre}',${this.cantidad},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id})`;
+            INSERT INTO Producto (codigo_barra, nombre, cantidad, descripcion, precio_kilo, precio_unitario, imagen, Marca_id, Categoria_id, Mascota_id)
+            VALUES ('${this.codigo_barra}','${this.nombre}',${this.cantidad},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id},${this.mascota_id})`;
             return await conexion.query(sql_agregarProducto);
       };
 
@@ -35,7 +36,8 @@ class Producto {
             SET nombre = '${this.nombre}', cantidad = '${this.cantidad}', 
             descripcion = '${this.descripcion}', precio_kilo = '${this.precio_kilo}', 
             precio_unitario = '${this.precio_unitario}', imagen = '${this.imagen}', 
-            Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}'
+            Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}',
+            Mascota_id = '${this.mascota_id}'
             WHERE codigo_barra = '${this.codigo_barra}'
             `
             return await conexion.query(sql_ModificarProducto);
