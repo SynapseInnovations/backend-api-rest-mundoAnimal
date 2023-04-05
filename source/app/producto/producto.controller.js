@@ -1,4 +1,5 @@
 const { productoModel  } = require("./producto.model")
+const jwt = require("jsonwebtoken");
 
 const mostrarProductos = async(req,res) =>{
       try{
@@ -34,7 +35,7 @@ const obtenerMantenedor= async(req,res) => {
 
 const agregarProducto = async(req, res) =>{
       try{
-            let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file);
+            let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file, req.headers["token"]);
             return res.json({
                   error: false,
                   msg: "Se ha ingresado el producto de forma exitosa",

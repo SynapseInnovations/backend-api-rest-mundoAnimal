@@ -60,11 +60,11 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-31T03:42:52.766Z",
-    "modified": "2023-03-31T03:42:52.766Z",
+    "modified": "2023-04-05T00:33:44.500Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMjI4NTcsImV4cCI6MTY4MDMwOTI1N30.sL-sbPHLqC4_58CpMT8TTATffV0hOduiIzxfCl1rgfs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODA2NTQ3MTAsImV4cCI6MTY4MDc0MTExMH0.IKJX8cTRdcpt_wvjOZLccZ5Cx_PpUqIcQS3H_7TbX3s"
       }
     ],
     "params": [],
@@ -104,8 +104,7 @@
           "name": "categoria_id",
           "value": "1"
         }
-      ],
-      "files": []
+      ]
     },
     "tests": []
   },
@@ -264,11 +263,11 @@
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-31T03:42:52.771Z",
-    "modified": "2023-03-31T03:42:52.771Z",
+    "modified": "2023-04-05T00:32:02.314Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMjI4NTcsImV4cCI6MTY4MDMwOTI1N30.sL-sbPHLqC4_58CpMT8TTATffV0hOduiIzxfCl1rgfs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODA2NTQ3MTAsImV4cCI6MTY4MDc0MTExMH0.IKJX8cTRdcpt_wvjOZLccZ5Cx_PpUqIcQS3H_7TbX3s"
       }
     ],
     "params": [],
