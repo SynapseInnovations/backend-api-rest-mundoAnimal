@@ -1,4 +1,5 @@
 const { categoriaModel } = require("./categoria.model");
+const Categoria = require("../../class/categoria");
 
 const mostrarCategorias = async(req, res) => {
       try{
@@ -49,10 +50,26 @@ const modificarCategoria = async(req, res) =>{
       }
 };
 
-
+const eliminarCategoria = async(req, res) =>{
+      try{
+            const consulta_modificarCategoria = await Categoria.Eliminar(req.query.id)
+            return res.json({
+                  error: false,
+                  msg: `Se ha eliminado con exito la categoria ${req.body.id}`,
+                  data: consulta_modificarCategoria
+            })
+      }catch(error){
+            console.log(error)
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
 
 module.exports.categoriasController = {
       mostrarCategorias,
       registrarCategoria,
-      modificarCategoria
+      modificarCategoria,
+      eliminarCategoria
 }

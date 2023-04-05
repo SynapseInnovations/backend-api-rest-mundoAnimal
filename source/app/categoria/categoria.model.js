@@ -20,5 +20,5 @@ const Modificar = async(categoria) =>{
 module.exports.categoriaModel = {
       Mostrar,
       Registrar,
-      Modificar
+      Modificar,
 }
