@@ -1,5 +1,7 @@
 # backend-api-rest-mundoAnimal
 
+#IMPORTANTE
+-Funciona a veces
 ## Pasos de instalación
 
 1. Clonar repositorio
