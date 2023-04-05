@@ -1,11 +1,11 @@
 const conexion = require("../database");
 
 class Producto {
-      constructor({codigo_barra, nombre, unidades , descripcion, precio_kilo, precio_unitario, imagen,marca_id, categoria_id}){
+      constructor({codigo_barra, nombre, cantidad , descripcion, precio_kilo, precio_unitario, imagen,marca_id, categoria_id}){
             
             this.codigo_barra = codigo_barra,
             this.nombre = nombre,
-            this.unidades = unidades,
+            this.cantidad = cantidad,
             this.descripcion = descripcion,
             this.precio_kilo = precio_kilo,
             this.precio_unitario = precio_unitario
@@ -24,15 +24,15 @@ class Producto {
 
       Registrar = async() =>{
             const sql_agregarProducto = `
-            INSERT INTO Producto (codigo_barra, nombre, unidades, descripcion, precio_kilo, precio_unitario, imagen, Marca_id, Categoria_id)
-            VALUES ('${this.codigo_barra}','${this.nombre}',${this.unidades},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id})`;
+            INSERT INTO Producto (codigo_barra, nombre, cantidad, descripcion, precio_kilo, precio_unitario, imagen, Marca_id, Categoria_id)
+            VALUES ('${this.codigo_barra}','${this.nombre}',${this.cantidad},'${this.descripcion}',${this.precio_kilo},${this.precio_unitario},'${this.imagen}',${this.marca_id},${this.categoria_id})`;
             return await conexion.query(sql_agregarProducto);
       };
 
       Modificar = async() => {
             const sql_ModificarProducto = `
             UPDATE Producto
-            SET nombre = '${this.nombre}', unidades = '${this.unidades}', 
+            SET nombre = '${this.nombre}', cantidad = '${this.cantidad}', 
             descripcion = '${this.descripcion}', precio_kilo = '${this.precio_kilo}', 
             precio_unitario = '${this.precio_unitario}', imagen = '${this.imagen}', 
             Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}'
