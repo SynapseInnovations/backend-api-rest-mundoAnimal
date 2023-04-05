@@ -22,19 +22,11 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-03-31T03:42:52.763Z",
-<<<<<<< HEAD
     "modified": "2023-03-31T03:53:55.872Z",
     "headers": [
       {
         "name": "token",
         "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMzQ4MjksImV4cCI6MTY4MDMyMTIyOX0.ah72hO01oU9-kVwSkpA26NV4RlipRhq-Op7V1i_OV1s"
-=======
-    "modified": "2023-03-31T06:45:40.728Z",
-    "headers": [
-      {
-        "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyNDUxMDAsImV4cCI6MTY4MDMzMTUwMH0.rdMTOTjD0JpH2x1W7SweOi7j5WZCZIygz5I-N03VVfU"
->>>>>>> b76226252fb3a5be720222aa409ed80de2f58002
       }
     ],
     "params": [],
@@ -210,20 +202,12 @@
     "_id": "e7da8296-3ab2-40b5-9b15-84039632d237",
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
-<<<<<<< HEAD
-    "name": "Modificar producto",
-=======
     "name": "Modificar Producto",
->>>>>>> b76226252fb3a5be720222aa409ed80de2f58002
     "url": "http://localhost:10905/producto/modificar",
     "method": "POST",
     "sortNum": 25000,
     "created": "2023-03-31T03:42:52.770Z",
-<<<<<<< HEAD
-    "modified": "2023-03-31T03:51:37.372Z",
-=======
     "modified": "2023-03-31T07:18:11.814Z",
->>>>>>> b76226252fb3a5be720222aa409ed80de2f58002
     "headers": [
       {
         "name": "token",
@@ -241,11 +225,7 @@
         },
         {
           "name": "nombre",
-<<<<<<< HEAD
-          "value": "999878987"
-=======
           "value": "editao"
->>>>>>> b76226252fb3a5be720222aa409ed80de2f58002
         },
         {
           "name": "unidades",
