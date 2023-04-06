@@ -91,9 +91,24 @@ const Eliminar = async(rut) =>{
       return await Cuenta.Eliminar(rut)
 };
 
+const Habilitar = async(rut)=>{
+      if (!validateRUT(rut)) {
+            throw new TypeError("El RUT ingresado no es válido");
+      }
+
+      if (await cuentaHelper.VerificarUsuarioSistema(rut)) {
+            throw new TypeError("No existe el usuario.");
+      }
+
+      const RolOperador = 2;
+      const sql_habilitar = `UPDATE Cuenta SET Rol_id = ${RolOperador} WHERE rut = '${rut}'`;
+      return await conexion.query(sql_habilitar);
+};
+
 module.exports.cuentaModel = {
       Registrar,
       Modificar,
       IniciarSesion,
-      Eliminar
+      Eliminar,
+      Habilitar
 }

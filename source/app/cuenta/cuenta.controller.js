@@ -100,7 +100,24 @@ const eliminarUsuario = async(req, res) => {
                   msg: "" + error.message,
             });
       }
-}
+};
+
+const habilitarCuenta = async(req, res) => {
+      try{
+            const consulta_habilitarCuenta = await cuentaModel.Habilitar(req.query.rut);
+            return res.status(200).json({
+                  error: false,
+                  msg: "Se ha habilitado la Cuenta ${}",
+                  token: consulta_habilitarCuenta
+            });
+      }catch(error){
+            console.error(error);
+            return res.status(400).json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
 
 module.exports.cuentaController = {
       mostrarUsuarios,
@@ -108,5 +125,6 @@ module.exports.cuentaController = {
       iniciarSesion,
       modificarUsuario,
       perfilUsuario,
-      eliminarUsuario
+      eliminarUsuario,
+      habilitarCuenta
 };

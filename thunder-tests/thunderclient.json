@@ -698,5 +698,25 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "cc731284-36d5-478b-899d-0471dbb51d3f",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "82b056e0-b936-4888-9b32-60ec86632177",
+    "name": "Habilitar Cuenta",
+    "url": "http://localhost:10905/usuario/habilitar?rut=19870095-9",
+    "method": "PUT",
+    "sortNum": 140000,
+    "created": "2023-04-06T17:57:22.588Z",
+    "modified": "2023-04-06T18:19:42.870Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "rut",
+        "value": "19870095-9",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]
