@@ -11,5 +11,6 @@ router.post("/iniciar_sesion", cuentaController.iniciarSesion);
 router.get("/perfil",[authToken.VerificarToken],cuentaController.perfilUsuario)
 router.post("/modificar", [authToken.VerificarToken, multerParser.Cuenta.single('imagen')], cuentaController.modificarUsuario);
 router.delete("/eliminar",[authToken.VerificarToken], cuentaController.eliminarUsuario);
+router.put("/habilitar", cuentaController.habilitarCuenta);
 
 module.exports = router;

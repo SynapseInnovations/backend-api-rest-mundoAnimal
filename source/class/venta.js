@@ -137,7 +137,24 @@ class Venta {
                                     inventarioProducto.codigo_barra
                               ]);
             }
-            console.log(values_ActualizarInventario);
+            const sql_ActualizarInventario = `
+            UPDATE Producto 
+            SET cantidad = CASE codigo_barra
+            ${values_ActualizarInventario.map(([cantidad, codigo_barra]) => {
+                  return `WHEN '${codigo_barra}' THEN ${cantidad}`;
+            })
+            .join(" ")}
+            END;
+            `
+
+            await conexion.query(sql_ActualizarInventario);
+
+            const sql_AnularVenta = `
+            UPDATE Venta
+            SET anulada = ${true}
+            WHERE numero_boleta = ${numero_boleta};
+            `
+            return await conexion.query(sql_AnularVenta)
       };
 }
 
