@@ -65,7 +65,15 @@ class Cuenta {
 
       static ObtenerTokeen = async(token) =>{
             return await jwt.verify(token, process.env.SECRET)
-      }
+      };
+      
+      static Eliminar = async(rut) =>{
+            const sql_EliminarProducto = `
+            UPDATE Cuenta
+            WHERE rut = ${rut}
+            `
+            return await conexion.query(sql_EliminarProducto)
+      };
 }
 
 module.exports = Cuenta;

@@ -5,6 +5,7 @@ const mostrarProductos = async(req,res) =>{
             let consulta_mostrarProductos = await productoModel.VerProductos();
             return res.json({
                   error: false,
+                  msg: "Lista de productos",
                   data: consulta_mostrarProductos
             });
       }catch(error){

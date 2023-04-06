@@ -78,8 +78,22 @@ const IniciarSesion = async(usuario) => {
       return inicio_sesion;
 };
 
+const Eliminar = async(rut) =>{
+
+      if (!validateRUT(rut)) {
+            throw new TypeError("El RUT ingresado no es válido");
+      }
+
+      if (await cuentaHelper.VerificarUsuarioSistema(rut)) {
+            throw new TypeError("No existe el usuario.");
+      }
+
+      
+};
+
 module.exports.cuentaModel = {
       Registrar,
       Modificar,
-      IniciarSesion
+      IniciarSesion,
+      Eliminar
 }

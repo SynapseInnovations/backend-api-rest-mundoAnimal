@@ -653,5 +653,24 @@
     ],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "769a119b-4c91-4271-b01d-a2b705b05eeb",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "82b056e0-b936-4888-9b32-60ec86632177",
+    "name": "Eliminar",
+    "url": "http://localhost:10905/usuario/eliminar",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2023-04-06T06:53:24.196Z",
+    "modified": "2023-04-06T06:56:08.927Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"rut\":\"66666666-6\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
