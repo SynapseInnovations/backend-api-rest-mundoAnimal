@@ -8,6 +8,6 @@ const { mascotaController } = require("../app/mascota/mascota.controller")
 router.get("", [authToken.VerificarToken],mascotaController.mostrarMascotas);
 router.post("/agregar",[authToken.VerificarToken,multerParser.Mascota.none()],mascotaController.registrarMascota);
 router.put("/modificar",[authToken.VerificarToken, multerParser.Mascota.none()],mascotaController.modificarMascota);
-//router.delete("/eliminar");
+router.delete("/eliminar", mascotaController.eliminarMascota);
 
 module.exports = router;
