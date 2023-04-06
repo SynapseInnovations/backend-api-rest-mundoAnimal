@@ -1,12 +1,13 @@
+const Marca = require("../../class/marca");
 const { marcaModel } = require("./marca.model");
 
 const mostrarMarcas = async(req, res) => {
       try{
-            const listaMarcas = await marcaModel.Mostrar();
+            const query = await marcaModel.Mostrar();
             return res.status(200).json({
                   error:false,
-                  msg: "Lista de todas las marcas disponibles",
-                  data: listaMarcas
+                  msg: "Lista de marcas cargada exitosamente.",
+                  data: query
             });
       }catch(error){
             console.log(error)
@@ -18,11 +19,11 @@ const mostrarMarcas = async(req, res) => {
 };
 const registrarMarca = async(req, res) =>{
       try{
-            const consulta_insercionMarca = await marcaModel.Registrar(req.body);
+            const query = await marcaModel.Registrar(req.body);
             return res.json({
                   error: false,
-                  msg: "Se ha ingresado la marca de forma exitosa",
-                  data: consulta_insercionMarca
+                  msg: `Se ha ingresado la marca de forma exitosa.`,
+                  data: query
             })
       }catch(error){
             return res.json({
@@ -34,11 +35,11 @@ const registrarMarca = async(req, res) =>{
 
 const modificarMarca = async(req, res) =>{
       try{
-            const consulta_modificarMarca = await marcaModel.Modificar(req.body)
+            const query = await marcaModel.Modificar(req.body)
             return res.json({
                   error: false,
-                  msg: `Se ha modificado con exito la marca ${req.body.id}`,
-                  data: consulta_modificarMarca
+                  msg: `Se ha modificado con exito la marca.`,
+                  data: query
             })
       }catch(error){
             console.log(error)
@@ -51,10 +52,11 @@ const modificarMarca = async(req, res) =>{
 
 const eliminarMarca = async(req, res)=>{
       try{
+            const query = await Marca.Eliminar(req.query.id)
             return res.json({
                   error: false,
-                  msg: "Se ha eliminado la marca",
-                  data: []
+                  msg: `Se ha eliminado con exito la marca.`,
+                  data: query
             });
       }catch(error){
             console.error(error)

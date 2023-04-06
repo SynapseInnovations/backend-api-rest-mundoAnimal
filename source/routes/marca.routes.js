@@ -7,6 +7,6 @@ const { multerParser } = require("../libs/multerConfig")
 router.get("", [authToken.VerificarToken ],marcasController.mostrarMarcas);
 router.post("/agregar", [authToken.VerificarToken, multerParser.Marca.none()],marcasController.registrarMarca);
 router.put("/modificar",[authToken.VerificarToken, multerParser.Marca.none()],marcasController.modificarMarca);
-//router.delete("/eliminar/:id_marcas", marcasController.eliminarMarca);
+router.delete("/eliminar", marcasController.eliminarMarca);
 
 module.exports = router;

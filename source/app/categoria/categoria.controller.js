@@ -3,11 +3,11 @@ const Categoria = require("../../class/categoria");
 
 const mostrarCategorias = async(req, res) => {
       try{
-            const listaCategorias = await categoriaModel.Mostrar();
+            const query = await categoriaModel.Mostrar();
             return res.status(200).json({
                   error:false,
-                  msg: "Lista de todas las categorias disponible",
-                  data: listaCategorias
+                  msg: "Lista de categorías cargada exitosamente.",
+                  data: query
             });
       }catch(error){
             console.log(error)
@@ -19,11 +19,11 @@ const mostrarCategorias = async(req, res) => {
 };
 const registrarCategoria = async(req, res) =>{
       try{
-            const consulta_insercionCategoria = await categoriaModel.Registrar(req.body);
+            const query = await categoriaModel.Registrar(req.body);
             return res.json({
                   error: false,
-                  msg: "Se ha ingresado la categoria de forma exitosa",
-                  data: consulta_insercionCategoria
+                  msg: `Se ha ingresado la categoria de forma exitosa.`,
+                  data: query
             })
       }catch(error){
             return res.json({
@@ -35,11 +35,11 @@ const registrarCategoria = async(req, res) =>{
 
 const modificarCategoria = async(req, res) =>{
       try{
-            const consulta_modificarCategoria = await categoriaModel.Modificar(req.body)
+            const query = await categoriaModel.Modificar(req.body)
             return res.json({
                   error: false,
-                  msg: `Se ha modificado con exito la categoria ${req.body.id}`,
-                  data: consulta_modificarCategoria
+                  msg: `Se ha modificado con exito la categoría.`,
+                  data: query
             })
       }catch(error){
             console.log(error)
@@ -52,11 +52,11 @@ const modificarCategoria = async(req, res) =>{
 
 const eliminarCategoria = async(req, res) =>{
       try{
-            const consulta_modificarCategoria = await Categoria.Eliminar(req.query.id)
+            const query = await Categoria.Eliminar(req.query.id)
             return res.json({
                   error: false,
-                  msg: `Se ha eliminado con exito la categoria ${req.body.id}`,
-                  data: consulta_modificarCategoria
+                  msg: `Se ha eliminado con exito la categoria.`,
+                  data: query
             })
       }catch(error){
             console.log(error)

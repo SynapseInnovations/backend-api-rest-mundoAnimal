@@ -40,6 +40,12 @@ class Mascota {
             const sql_id = `SELECT 1 FROM Mascota where nombre = '${name}'`
             return await conexion.query(sql_id)
       }
+      static Eliminar = async(id) =>{
+            const sql_eliminar = `
+            DELETE FROM Mascota WHERE id= '${id}';
+            `;
+            return await conexion.query(sql_eliminar)
+      }
 }
 
 module.exports = Mascota;

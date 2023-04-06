@@ -40,6 +40,13 @@ class Marca {
             const sql_id = `SELECT 1 FROM Marca where nombre = '${name}'`
             return await conexion.query(sql_id)
       }
+
+      static Eliminar = async(id) =>{
+            const sql_eliminar = `
+            DELETE FROM Marca WHERE id= '${id}';
+            `;
+            return await conexion.query(sql_eliminar)
+      }
 }
 
 module.exports = Marca;

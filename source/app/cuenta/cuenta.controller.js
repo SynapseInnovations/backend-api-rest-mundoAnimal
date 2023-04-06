@@ -3,11 +3,11 @@ const Cuenta = require("../../class/cuenta");
 
 const mostrarUsuarios = async(req,res) =>{
       try{
-            const consulta_mostrarUsuarios = await Cuenta.ListaUsuarios();
+            const query = await Cuenta.ListaUsuarios();
             return res.status(200).json({
                   error: false,
-                  msg: "Lista de todos los usuarios del sistema",
-                  data: consulta_mostrarUsuarios
+                  msg: "Lista de todos los usuarios cargada exitosamente.",
+                  data: query
             });
       }catch(error){
             console.error(error);
@@ -20,11 +20,11 @@ const mostrarUsuarios = async(req,res) =>{
 
 const registrarUsuario = async(req, res) =>{
       try{
-            let consulta_registrarUsuario = await cuentaModel.Registrar(req.body, req.file);
+            let query = await cuentaModel.Registrar(req.body, req.file);
             return res.status(200).json({
                   error: false,
-                  msg: "Usuario creado exitosamente",
-                  token: consulta_registrarUsuario
+                  msg: `Se ha ingresado la categoria ${req.body.rut} de forma exitosa.`,
+                  token: query
             });
       }catch(error){
             console.error(error);
@@ -37,11 +37,11 @@ const registrarUsuario = async(req, res) =>{
 
 const iniciarSesion = async(req,res)=>{
       try{
-            let consulta_iniciarSesion = await cuentaModel.IniciarSesion(req.body);
+            let query = await cuentaModel.IniciarSesion(req.body);
             return res.status(200).json({
                   error: false,
-                  msg: "Se ha iniciado sesión correctamente",
-                  data: consulta_iniciarSesion
+                  msg: "Se ha iniciado sesión correctamente.",
+                  data: query
             });
       }catch(error){
             console.error(error);
@@ -54,11 +54,11 @@ const iniciarSesion = async(req,res)=>{
 
 const perfilUsuario = async(req,res) =>  {
       try{
-            const consulta_perfilUsuario = await Cuenta.Perfil(req.query.rut);
+            const query = await Cuenta.Perfil(req.query.rut);
             return res.status(200).json({
                   error: false,
-                  msg: `Datos del usuario ${req.query.rut}`,
-                  data: consulta_perfilUsuario
+                  msg: `Datos del usuario ${req.query.rut} cargados exitosamente.`,
+                  data: query
             });
       }catch(error){
             return res.status(400).json({
@@ -70,11 +70,11 @@ const perfilUsuario = async(req,res) =>  {
 
 const modificarUsuario = async(req, res) =>{
       try{
-            const consulta_modificarUsuario = await cuentaModel.Modificar(req.body, req.file);
+            const query = await cuentaModel.Modificar(req.body, req.file);
             return res.status(200).json({
                   error: false,
-                  msg: "Usuario modificado exitosamente",
-                  token: consulta_modificarUsuario
+                  msg: `Se ha modificado con exito el usuario ${req.body.rut}.`,
+                  token: query
             });
       }catch(error){
             console.error(error);
@@ -87,11 +87,11 @@ const modificarUsuario = async(req, res) =>{
 
 const eliminarUsuario = async(req, res) => {
       try{
-            const consulta_eliminarUsuario = await cuentaModel.Eliminar(req.query.rut);
+            const query = await cuentaModel.Eliminar(req.query.rut);
             return res.status(200).json({
                   error: false,
-                  msg: "Usuario modificado exitosamente",
-                  token: consulta_eliminarUsuario
+                  msg: `Se ha eliminado con exito el usuario.`,
+                  token: query
             });
       }catch(error){
             console.error(error);

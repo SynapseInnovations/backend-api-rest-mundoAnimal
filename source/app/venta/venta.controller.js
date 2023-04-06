@@ -2,7 +2,7 @@ const { ventaModel  } = require("./venta.model");
 
 const registrarVenta = async(req,res) =>{
       try{
-            await ventaModel.Registrar(req.body);
+            await query.Registrar(req.body);
             return res.status(200).json({
                   error: false,
                   msg: "Se ha registrado la venta exitosamente",
@@ -18,11 +18,11 @@ const registrarVenta = async(req,res) =>{
 
 const mostrarVentas = async(req, res) =>{
       try {
-            const ventas = await ventaModel.VerVentas();
+            const query = await ventaModel.VerVentas();
             return res.status(200).json({
                   error: false,
-                  message: "",
-                  data: ventas
+                  message: "Lista de ventas cargada exitosamente.",
+                  data: query
             });
       } catch (error) {
             console.error(error);
@@ -35,11 +35,11 @@ const mostrarVentas = async(req, res) =>{
 
 const eliminarVenta = async(req, res) => {
       try{
-            const consulta_EliminarVenta = await ventaModel.Eliminar(req.query.numero_boleta);
+            const query = await ventaModel.Eliminar(req.query.numero_boleta);
             return res.status(200).json({
                   error: true,
-                  msg: "Se ha anulado la venta",
-                  data: consulta_EliminarVenta
+                  msg: "Se ha anulado la venta exitosamente.}",
+                  data: query
             });
       }catch(error){
             console.error(error);

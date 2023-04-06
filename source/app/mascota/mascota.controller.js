@@ -1,12 +1,13 @@
+const Mascota = require("../../class/mascota");
 const { mascotaModel } = require("./mascota.model");
 
 const mostrarMascotas = async(req, res) => {
       try{
-            const listaMascotas = await mascotaModel.Mostrar();
+            const query = await mascotaModel.Mostrar();
             return res.status(200).json({
                   error:false,
-                  msg: "Lista de todas las mascotas disponibles",
-                  data: listaMascotas
+                  msg: "Lista de mascotas cargada exitosamente.",
+                  data: query
             });
       }catch(error){
             console.log(error)
@@ -18,11 +19,11 @@ const mostrarMascotas = async(req, res) => {
 };
 const registrarMascota = async(req, res) =>{
       try{
-            const consulta_insercionMascota = await mascotaModel.Registrar(req.body);
+            const query = await mascotaModel.Registrar(req.body);
             return res.json({
                   error: false,
-                  msg: "Se ha ingresado la mascota de forma exitosa",
-                  data: consulta_insercionMascota
+                  msg: `Se ha ingresado la mascota de forma exitosa.`,
+                  data: query
             })
       }catch(error){
             return res.json({
@@ -34,11 +35,11 @@ const registrarMascota = async(req, res) =>{
 
 const modificarMascota = async(req, res) =>{
       try{
-            const consulta_modificarMascota = await mascotaModel.Modificar(req.body)
+            const query = await mascotaModel.Modificar(req.body)
             return res.json({
                   error: false,
-                  msg: `Se ha modificado con exito la mascota ${req.body.id}`,
-                  data: consulta_modificarMascota
+                  msg: `Se ha modificado con exito la mascota.`,
+                  data: query
             })
       }catch(error){
             console.log(error)
@@ -49,10 +50,26 @@ const modificarMascota = async(req, res) =>{
       }
 };
 
-
+const eliminarMascota = async(req, res) =>{
+      try{
+            const query = await Mascota.Eliminar(req.query.id)
+            return res.json({
+                  error: false,
+                  msg: `Se ha eliminado con exito la mascota.`,
+                  data: query
+            })
+      }catch(error){
+            console.log(error)
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+};
 
 module.exports.mascotaController = {
       mostrarMascotas,
       registrarMascota,
-      modificarMascota
+      modificarMascota,
+      eliminarMascota
 }
