@@ -50,6 +50,7 @@ class Producto {
             WHERE codigo_barra = '${codigo}'`;
             return await conexion.query(sql_eliminarProducto);
       };
+
 }
 
 module.exports = Producto;

@@ -634,5 +634,24 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "348b7884-74d1-431c-af2d-de1afd10184a",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
+    "name": "Ver historialProducto",
+    "url": "http://localhost:10905/producto/historial",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-04-06T06:36:45.749Z",
+    "modified": "2023-04-06T06:38:56.130Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODA3MzczODUsImV4cCI6MTY4MDgyMzc4NX0.sPWsbYbtJy5AcziBeNuO1_ZZtuduXFfrblC5z1aJJbY"
+      }
+    ],
+    "params": [],
+    "tests": []
   }
 ]

@@ -81,12 +81,19 @@ const Eliminar = async(codigo, token) => {
       await conexion.query(sql_modificarProducto)
 
       return await Producto.Borrar(codigo);
-}
+};
+
+const VerHistorialProducto = async() => {
+      const sql_VerHistorialProducto = `
+      SELECT * FROM HistorialProducto;`;
+      return await conexion.query(sql_VerHistorialProducto);
+};
 
 module.exports.productoModel = {
       Agregar,
       Modificar,
       VerProductos,
       Eliminar,
-      ObtenerMantenedor
+      ObtenerMantenedor,
+      VerHistorialProducto
 }

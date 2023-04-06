@@ -84,9 +84,11 @@ const eliminarProducto = async(req, res) =>{
 
 const historialProducto = async(req,res) =>{
       try{
+            const consulta_historialProducto = await productoModel.VerHistorialProducto()
             return res.status(200).json({
                   error: false,
-                  msg: 'Historial de cambios en los productos'
+                  msg: 'Historial de cambios en los productos',
+                  data: consulta_historialProducto
             });
       }catch(error){
             console.error(error)
@@ -102,5 +104,6 @@ module.exports.productoController = {
       agregarProducto,
       modificarProducto,
       eliminarProducto,
-      obtenerMantenedor
+      obtenerMantenedor,
+      historialProducto
 };

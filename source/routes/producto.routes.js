@@ -10,5 +10,6 @@ router.get("/mantenedor",[authToken.VerificarToken],productoController.obtenerMa
 router.post("/agregar",[authToken.VerificarToken,multerParser.Producto.single("imagen")],productoController.agregarProducto);
 router.post("/modificar",[authToken.VerificarToken, multerParser.Producto.single("imagen")],productoController.modificarProducto);
 router.delete("/eliminar",[authToken.VerificarToken],productoController.eliminarProducto);
+router.get("/historial",[authToken.VerificarToken],productoController.historialProducto);
 
 module.exports = router;
