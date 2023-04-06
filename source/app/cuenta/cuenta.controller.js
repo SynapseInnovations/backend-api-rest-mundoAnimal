@@ -20,11 +20,10 @@ const mostrarUsuarios = async(req,res) =>{
 
 const registrarUsuario = async(req, res) =>{
       try{
-            let query = await cuentaModel.Registrar(req.body, req.file);
+            const query = await cuentaModel.Registrar(req.body, req.file);
             return res.status(200).json({
                   error: false,
-                  msg: `Se ha ingresado la categoria ${req.body.rut} de forma exitosa.`,
-                  token: query
+                  msg: `Se ha ingresado la categoria ${req.body.rut} de forma exitosa.`
             });
       }catch(error){
             console.error(error);
@@ -37,7 +36,7 @@ const registrarUsuario = async(req, res) =>{
 
 const iniciarSesion = async(req,res)=>{
       try{
-            let query = await cuentaModel.IniciarSesion(req.body);
+            const query = await cuentaModel.IniciarSesion(req.body);
             return res.status(200).json({
                   error: false,
                   msg: "Se ha iniciado sesión correctamente.",
@@ -73,8 +72,7 @@ const modificarUsuario = async(req, res) =>{
             const query = await cuentaModel.Modificar(req.body, req.file);
             return res.status(200).json({
                   error: false,
-                  msg: `Se ha modificado con exito el usuario ${req.body.rut}.`,
-                  token: query
+                  msg: `Se ha modificado con exito el usuario ${req.body.rut}.`
             });
       }catch(error){
             console.error(error);
@@ -90,8 +88,7 @@ const eliminarUsuario = async(req, res) => {
             const query = await cuentaModel.Eliminar(req.query.rut);
             return res.status(200).json({
                   error: false,
-                  msg: `Se ha eliminado con exito el usuario.`,
-                  token: query
+                  msg: `Se ha eliminado con exito el usuario.`
             });
       }catch(error){
             console.error(error);
@@ -104,11 +101,10 @@ const eliminarUsuario = async(req, res) => {
 
 const habilitarCuenta = async(req, res) => {
       try{
-            const consulta_habilitarCuenta = await cuentaModel.Habilitar(req.query.rut);
+            const query = await cuentaModel.Habilitar(req.query.rut);
             return res.status(200).json({
                   error: false,
-                  msg: "Se ha habilitado la Cuenta ${}",
-                  token: consulta_habilitarCuenta
+                  msg: "Se ha habilitado el el usuario."
             });
       }catch(error){
             console.error(error);
