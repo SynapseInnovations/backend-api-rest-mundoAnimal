@@ -9,6 +9,6 @@ router.get("", [authToken.VerificarToken],productoController.mostrarProductos);
 router.get("/mantenedor",[authToken.VerificarToken],productoController.obtenerMantenedor);
 router.post("/agregar",[authToken.VerificarToken,multerParser.Producto.single("imagen")],productoController.agregarProducto);
 router.post("/modificar",[authToken.VerificarToken, multerParser.Producto.single("imagen")],productoController.modificarProducto);
-//router.delete("/eliminar/:codigo",[authToken.VerificarToken],productoController.eliminarProducto);
+router.delete("/eliminar",[authToken.VerificarToken],productoController.eliminarProducto);
 
 module.exports = router;
