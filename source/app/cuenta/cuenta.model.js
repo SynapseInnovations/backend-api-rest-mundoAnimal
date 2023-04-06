@@ -88,7 +88,7 @@ const Eliminar = async(rut) =>{
             throw new TypeError("No existe el usuario.");
       }
 
-      
+      return await Cuenta.Eliminar(rut)
 };
 
 module.exports.cuentaModel = {

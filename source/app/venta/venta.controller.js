@@ -33,7 +33,25 @@ const mostrarVentas = async(req, res) =>{
       }
 };
 
+const eliminarVenta = async(req, res) => {
+      try{
+            const consulta_EliminarVenta = await ventaModel.Eliminar(req.query.numero_boleta);
+            return res.status(200).json({
+                  error: true,
+                  msg: "Se ha anulado la venta",
+                  data: consulta_EliminarVenta
+            });
+      }catch(error){
+            console.error(error);
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
+      }
+}
+
 module.exports.ventaController = {
       mostrarVentas,
-      registrarVenta
+      registrarVenta,
+      eliminarVenta
 }

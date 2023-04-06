@@ -87,11 +87,11 @@ const modificarUsuario = async(req, res) =>{
 
 const eliminarUsuario = async(req, res) => {
       try{
-            const consulta_eliminarUsuario = await cuentaModel.Eliminar(req.body.rut)
+            const consulta_eliminarUsuario = await cuentaModel.Eliminar(req.query.rut);
             return res.status(200).json({
                   error: false,
                   msg: "Usuario modificado exitosamente",
-                  token: consulta_eliminarUsuario,
+                  token: consulta_eliminarUsuario
             });
       }catch(error){
             console.error(error);

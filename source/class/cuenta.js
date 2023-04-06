@@ -68,10 +68,11 @@ class Cuenta {
       };
       
       static Eliminar = async(rut) =>{
+            const Rol_usuario = 3; // rol usuario
             const sql_EliminarProducto = `
-            UPDATE Cuenta
-            WHERE rut = ${rut}
-            `
+            UPDATE Cuenta SET Rol_id = '${Rol_usuario}'
+            WHERE rut = '${rut}'
+            `;
             return await conexion.query(sql_EliminarProducto)
       };
 }

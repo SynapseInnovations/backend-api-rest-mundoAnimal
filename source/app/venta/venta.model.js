@@ -42,7 +42,14 @@ const VerVentas = async() =>{
       return verVentas;
 };
 
+const Eliminar = async(numero_boleta) =>{
+      const inventario = await productoModel.VerProductos();
+      const venta = await Venta.ObtenerVenta(numero_boleta);
+      return await Venta.AnularVenta(inventario, venta, numero_boleta)
+}
+
 module.exports.ventaModel = {
       Registrar,
-      VerVentas
+      VerVentas,
+      Eliminar
 }

@@ -659,18 +659,44 @@
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "82b056e0-b936-4888-9b32-60ec86632177",
     "name": "Eliminar",
-    "url": "http://localhost:10905/usuario/eliminar",
-    "method": "POST",
+    "url": "http://localhost:10905/usuario/eliminar?rut=19870095-9",
+    "method": "DELETE",
     "sortNum": 120000,
     "created": "2023-04-06T06:53:24.196Z",
-    "modified": "2023-04-06T06:56:08.927Z",
+    "modified": "2023-04-06T08:19:38.141Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODA3MzczODUsImV4cCI6MTY4MDgyMzc4NX0.sPWsbYbtJy5AcziBeNuO1_ZZtuduXFfrblC5z1aJJbY"
+      }
+    ],
+    "params": [
+      {
+        "name": "rut",
+        "value": "19870095-9",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "9a391cc4-5b29-48ba-979a-d7eca6c08177",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "9b93d5d3-55ea-4479-b8d0-d42d73c36a68",
+    "name": "Borrar Venta",
+    "url": "http://localhost:10905/venta/eliminar?numero_boleta=1",
+    "method": "DELETE",
+    "sortNum": 130000,
+    "created": "2023-04-06T07:29:36.551Z",
+    "modified": "2023-04-06T08:19:04.865Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"rut\":\"66666666-6\"\n}",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "numero_boleta",
+        "value": "1",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]

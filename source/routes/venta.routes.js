@@ -8,5 +8,5 @@ const { multerParser } = require("../libs/multerConfig");
 // Venta
 router.get("", ventaController.mostrarVentas);
 router.post("/registrar_venta",[multerParser.Venta.none()], ventaController.registrarVenta); // Agregar la weaita xD
-
+router.delete("/eliminar",ventaController.eliminarVenta)
 module.exports = router;
