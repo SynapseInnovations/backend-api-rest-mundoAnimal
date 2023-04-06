@@ -34,7 +34,7 @@ const obtenerMantenedor= async(req,res) => {
 
 const agregarProducto = async(req, res) =>{
       try{
-            let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file);
+            let consulta_insercionProducto = await productoModel.Agregar(req.body, req.file, req.headers["token"]);
             return res.json({
                   error: false,
                   msg: "Se ha ingresado el producto de forma exitosa",
@@ -50,7 +50,7 @@ const agregarProducto = async(req, res) =>{
 
 const modificarProducto = async(req, res) =>{
       try{
-            const consulta_modificarProducto = await productoModel.Modificar(req.body, req.file)
+            const consulta_modificarProducto = await productoModel.Modificar(req.body, req.file, req.headers["token"])
             return res.json({
                   error: false,
                   msg: `Se ha modificado con exito el producto ${req.body.codigo_barra}`,
@@ -67,7 +67,7 @@ const modificarProducto = async(req, res) =>{
 
 const eliminarProducto = async(req, res) =>{
       try {
-            const consulta_eliminarProducto = await productoModel.Eliminar(req.query.codigo_barra);
+            const consulta_eliminarProducto = await productoModel.Eliminar(req.query.codigo_barra, req.headers["token"]);
             return res.status(200).json({
                   error: false,
                   msg: 'Se ha eliminado el producto',
@@ -79,6 +79,21 @@ const eliminarProducto = async(req, res) =>{
                   error:true,
                   msg: ''+error.message
             })
+      }
+};
+
+const historialProducto = async(req,res) =>{
+      try{
+            return res.status(200).json({
+                  error: false,
+                  msg: 'Historial de cambios en los productos'
+            });
+      }catch(error){
+            console.error(error)
+            return res.json({
+                  error: true,
+                  msg: "" + error.message,
+            });
       }
 };
 

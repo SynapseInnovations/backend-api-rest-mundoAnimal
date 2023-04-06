@@ -1,6 +1,8 @@
 const bcryptjs = require("bcryptjs");
 const conexion = require("../database");
 const path = require("path");
+const jwt = require("jsonwebtoken");
+
 
 class Cuenta {
       constructor({rut, nombre, correo, clave, direccion, imagen, Rol_id}) {
@@ -60,6 +62,10 @@ class Cuenta {
       static CompararClave = async (claveUser, claveBd) => {
             return await bcryptjs.compare(claveUser, claveBd);
       };
+
+      static ObtenerTokeen = async(token) =>{
+            return await jwt.verify(token, process.env.SECRET)
+      }
 }
 
 module.exports = Cuenta;

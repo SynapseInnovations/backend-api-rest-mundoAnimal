@@ -1,9 +1,11 @@
 const Producto = require("../../class/producto");
+const Cuenta = require("../../class/cuenta");
 const conexion = require("../../database");
 
-const Agregar = async(producto, file) => {
-      const nuevoProducto = new Producto(producto)
-      
+const Agregar = async(producto, file, token) => {
+      const rut = await Cuenta.ObtenerTokeen(token)
+      const nuevoProducto = new Producto(producto, rut.id)
+
       if (!await nuevoProducto.VerificarExistencia()) {
             throw new TypeError("El producto ya existe.");
       }
@@ -17,8 +19,9 @@ const Agregar = async(producto, file) => {
       return await nuevoProducto.Registrar();
 };
 
-const Modificar = async(producto, file) =>{
-      const modificarProducto = new Producto(producto)
+const Modificar = async(producto, file, token) =>{
+      const rut = await Cuenta.ObtenerTokeen(token);
+      const modificarProducto = new Producto(producto, rut.id)
 
       if(file==undefined){
             modificarProducto.imagen = "https://i.imgur.com/EBH7aDM.png";
@@ -69,11 +72,15 @@ const ObtenerMantenedor = async () => {
       return await conexion.query(sql_obtenerMantenedor);
 };
 
-const Eliminar = async(codigo) => {
-      let sql_eliminarProducto = `
-      DELETE FROM Producto 
-      WHERE codigo_barra = '${codigo}'`;
-      return await conexion.query(sql_eliminarProducto);
+const Eliminar = async(codigo, token) => {
+      const rut = await Cuenta.ObtenerTokeen(token);
+      const sql_modificarProducto = `
+      UPDATE Producto SET Cuenta_rut = '${rut.id}'
+      WHERE codigo_barra = '${this.codigo_barra}'
+      `;
+      await conexion.query(sql_modificarProducto)
+
+      return await Producto.Borrar(codigo);
 }
 
 module.exports.productoModel = {

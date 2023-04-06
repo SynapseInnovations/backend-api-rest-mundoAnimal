@@ -60,11 +60,11 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-31T03:42:52.766Z",
-    "modified": "2023-03-31T03:42:52.766Z",
+    "modified": "2023-04-06T05:09:13.917Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMjI4NTcsImV4cCI6MTY4MDMwOTI1N30.sL-sbPHLqC4_58CpMT8TTATffV0hOduiIzxfCl1rgfs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODA3NTc1MTYsImV4cCI6MTY4MDg0MzkxNn0.XeAMZJw_Hox-FDb-C8AqTNEDMJVx88B5d2SDhkjvDBA"
       }
     ],
     "params": [],
@@ -81,7 +81,7 @@
           "value": "productCarrotxDD1"
         },
         {
-          "name": "unidades",
+          "name": "cantidad",
           "value": "1"
         },
         {
@@ -98,14 +98,23 @@
         },
         {
           "name": "marca_id",
-          "value": "2"
+          "value": "1"
         },
         {
           "name": "categoria_id",
           "value": "1"
+        },
+        {
+          "name": "mascota_id",
+          "value": "1"
         }
       ],
-      "files": []
+      "files": [
+        {
+          "name": "imagen",
+          "value": "..\\..\\..\\..\\OneDrive\\Imágenes\\burgerking.png"
+        }
+      ]
     },
     "tests": []
   },
@@ -207,11 +216,11 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2023-03-31T03:42:52.770Z",
-    "modified": "2023-03-31T07:18:11.814Z",
+    "modified": "2023-04-06T05:20:04.494Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMjI4NTcsImV4cCI6MTY4MDMwOTI1N30.sL-sbPHLqC4_58CpMT8TTATffV0hOduiIzxfCl1rgfs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODA3NTc1MTYsImV4cCI6MTY4MDg0MzkxNn0.XeAMZJw_Hox-FDb-C8AqTNEDMJVx88B5d2SDhkjvDBA"
       }
     ],
     "params": [],
@@ -221,15 +230,15 @@
       "form": [
         {
           "name": "codigo_barra",
-          "value": "5123123"
+          "value": "999878987"
         },
         {
           "name": "nombre",
-          "value": "editao"
+          "value": "productCarrotxDD1"
         },
         {
-          "name": "unidades",
-          "value": "1"
+          "name": "cantidad",
+          "value": "3"
         },
         {
           "name": "descripcion",
@@ -245,11 +254,21 @@
         },
         {
           "name": "marca_id",
-          "value": "2"
+          "value": "1"
         },
         {
           "name": "categoria_id",
           "value": "1"
+        },
+        {
+          "name": "mascota_id",
+          "value": "1"
+        }
+      ],
+      "files": [
+        {
+          "name": "imagen",
+          "value": "..\\..\\..\\..\\OneDrive\\Imágenes\\burgerking.png"
         }
       ]
     },
@@ -283,12 +302,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-31T03:42:52.773Z",
-    "modified": "2023-03-31T03:42:52.773Z",
+    "modified": "2023-04-06T05:05:12.516Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"rut\":\"19870095-9\",\n  \"clave\":\"123asd\"\n}",
+      "raw": "{\n  \"rut\":\"66666666-6\",\n  \"clave\":\"clave2\"\n}",
       "form": []
     },
     "tests": []
@@ -596,11 +615,11 @@
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
     "name": "Eliminar ",
-    "url": "http://localhost:10905/producto/eliminar?codigo_barra=666",
+    "url": "http://localhost:10905/producto/eliminar?codigo_barra=999878987",
     "method": "DELETE",
     "sortNum": 100000,
     "created": "2023-04-06T02:07:19.543Z",
-    "modified": "2023-04-06T02:14:00.988Z",
+    "modified": "2023-04-06T06:13:17.453Z",
     "headers": [
       {
         "name": "token",
@@ -610,7 +629,7 @@
     "params": [
       {
         "name": "codigo_barra",
-        "value": "666",
+        "value": "999878987",
         "isPath": false
       }
     ],
