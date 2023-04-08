@@ -84,6 +84,9 @@ class Venta {
             }
       }
 
+      if(values_ActualizarInventario.length == 0){
+            return
+      }
       const sql_ActualizarInventario = `
                   UPDATE Producto 
                   SET cantidad = CASE codigo_barra
