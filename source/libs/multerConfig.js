@@ -9,6 +9,10 @@ const producto = multer.diskStorage({
             cb(null, path.join(__dirname, "../public", "productos"));
       },
       filename: function (req, file, cb) {
+            if(!file){
+                  return
+            }
+
             cb(null, req.body.nombre + path.extname(file.originalname));  
       },
       fileFilter: function(req, file, cb){

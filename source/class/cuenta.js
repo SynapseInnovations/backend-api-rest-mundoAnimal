@@ -23,7 +23,16 @@ class Cuenta {
             return await conexion.query(sql_RegistrarUsuario);
       };
 
-      Modificar = async() => {
+      Modificar = async(modificado) => {
+            if(modificado){
+                  const sql_ModificarUsuario = ` 
+                  UPDATE Cuenta
+                  SET nombre = '${this.nombre}', correo = '${this.correo}', clave = '${await Cuenta.EncriptarClave(this.clave)}', 
+                  direccion = '${this.direccion}', Rol_id = '${this.Rol_id}'
+                  WHERE rut = '${this.rut}'
+                  `
+                  return await conexion.query(sql_ModificarUsuario);
+            }
             const sql_ModificarUsuario = ` 
             UPDATE Cuenta
             SET nombre = '${this.nombre}', correo = '${this.correo}', clave = '${await Cuenta.EncriptarClave(this.clave)}', 

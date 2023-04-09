@@ -31,8 +31,8 @@ const Registrar = async(usuario, file) =>{
 };
 
 const Modificar = async(usuario, file) =>{
+      const modificado = false
       modificarUsuario = new Cuenta(usuario);
-
       if (!validateRUT(modificarUsuario.rut)) {
             throw new TypeError("El RUT ingresado no es válido");
       }
@@ -41,13 +41,11 @@ const Modificar = async(usuario, file) =>{
             throw new TypeError("No existe el usuario.");
       }
 
-      if (file == undefined) {
-            modificarUsuario.imagen = "https://i.imgur.com/EBH7aDM.png";
-      } else {
+      if (file) {
             modificarUsuario.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
       }
 
-      return await modificarUsuario.Modificar();
+      return await modificarUsuario.Modificar(modificado);
 };
 
 
