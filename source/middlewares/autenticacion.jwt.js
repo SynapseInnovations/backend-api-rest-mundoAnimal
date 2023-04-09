@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { cuentaHelper } = require("../app/cuenta/cuenta.helper");
+const Cuenta = require("../class/cuenta");
 
 const VerificarToken = async (req, res, next) => {
       try{
@@ -27,9 +28,9 @@ const VerificarToken = async (req, res, next) => {
 
 const VerificarUsuario = async (req,res,next) =>{
       try{
-            const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
+            const rolesUsuario = await Cuenta.Perfil(req.usuarioId);
             for(let i = 0; i<rolesUsuario.length ;i++){
-                  if(rolesUsuario[i].Rol === "Usuario"){
+                  if(rolesUsuario[i].rol === "Usuario"){
                         next();
                         return;
                   }
@@ -49,10 +50,9 @@ const VerificarUsuario = async (req,res,next) =>{
 
 const VerificarAdministrador = async (req, res, next) => {
       try {
-            const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
-            console.log(rolesUsuario)
+            const rolesUsuario = await Cuenta.Perfil(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
-                  if (rolesUsuario[i].Rol === "Administrador") {
+                  if (rolesUsuario[i].rol === "Administrador") {
                         next();
                         return;
                   }
@@ -71,9 +71,9 @@ const VerificarAdministrador = async (req, res, next) => {
 
 const VerificarOperador = async (req, res, next) => {
       try {
-            const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
+            const rolesUsuario = await Cuenta.Perfil(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
-                  if (rolesUsuario[i].Rol === "Operador") {
+                  if (rolesUsuario[i].rol === "Operador") {
                     next();
                     return;
                   }
@@ -92,9 +92,9 @@ const VerificarOperador = async (req, res, next) => {
 
 const VerificarOperadorOrAdministrador = async(req, res, next) => {
       try {
-            const rolesUsuario = await cuentaHelper.DatosUsuario(req.usuarioId);
+            const rolesUsuario = await Cuenta.Perfil(req.usuarioId);
             for (let i = 0; i < rolesUsuario.length; i++) {
-                  if (rolesUsuario[i].Rol === "Operador" || rolesUsuario[i].Rol === "Administrador")
+                  if (rolesUsuario[i].rol === "Operador" || rolesUsuario[i].rol === "Administrador")
                   {
                         next();
                         return;

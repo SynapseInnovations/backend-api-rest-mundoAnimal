@@ -107,20 +107,20 @@ class Venta {
       };
 
       ChequearInventario = async (inventario) => {
-      let respuesta = {};
-      for (let i = 0; i < this.productos.length; i++) {
-            let [productoFilter] = inventario.filter(
-            (product) => product.codigo_barra == this.productos[i].codigo_barra
-            );
-            if (productoFilter.unidades < this.productos[i].cantidad) {
-            respuesta.stock = false;
-            respuesta.producto_nombre = productoFilter.nombre;
-            respuesta.cantidad = productoFilter.unidades;
-            return respuesta;
+            let respuesta = {};
+            for (let i = 0; i < this.productos.length; i++) {
+                  let [productoFilter] = inventario.filter(
+                  (product) => product.codigo_barra == this.productos[i].codigo_barra
+                  );
+                  if (productoFilter.unidades < this.productos[i].cantidad) {
+                  respuesta.stock = false;
+                  respuesta.producto_nombre = productoFilter.nombre;
+                  respuesta.cantidad = productoFilter.unidades;
+                  return respuesta;
+                  }
             }
-      }
-      respuesta.stock = true;
-      return respuesta;
+            respuesta.stock = true;
+            return respuesta;
       };
 
       static ObtenerVenta = async (numero_boleta) => {
