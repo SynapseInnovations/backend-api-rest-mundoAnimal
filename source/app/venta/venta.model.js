@@ -14,7 +14,7 @@ const Registrar = async(productos) =>{
       }
 
       const ventaRegistrada = await nuevaVenta.RegistrarVenta(boleta);
-      const ventaProducto   =  await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta);
+      const ventaProducto   =  await nuevaVenta.InsertarVentaProducto(ventaRegistrada.insertId, boleta, nuevaVenta.fecha);
       await nuevaVenta.ActualizarInventario(boleta, inventario);
       return ventaProducto;
 };
@@ -36,7 +36,7 @@ const VerVentas = async() =>{
       'Mascota_id', Mascota_id)) 
       FROM ProductosVenta PV
       WHERE PV.numero_boleta = V.numero_boleta) as productos
-      FROM Venta V
+      FROM Venta V ORDER BY V.numero_boleta DESC
       `;
       const verVentas = await conexion.query(sql_VerVentas);
       return verVentas;

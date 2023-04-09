@@ -44,8 +44,8 @@ class Venta {
       return registroVenta;
       };
 
-      InsertarVentaProducto = async (numero_boleta, boleta) => {
-      let sql_RegistrarProductoVenta = `INSERT INTO ProductosVenta (codigo_barra, numero_boleta, venta_unitaria, nombre, cantidad, precio_neto, precio_venta, Categoria_id, Marca_id, Mascota_id) VALUES ?`;
+      InsertarVentaProducto = async (numero_boleta, boleta, fecha) => {
+      let sql_RegistrarProductoVenta = `INSERT INTO ProductosVenta (codigo_barra, numero_boleta, venta_unitaria, nombre, cantidad, precio_neto, precio_venta, fecha, Categoria_id, Marca_id, Mascota_id) VALUES ?`;
 
       const values_ProductoVenta = boleta.productos.map((producto) => {
             const venta_unitario = producto.venta_unitaria ? 1 : 0;
@@ -58,6 +58,7 @@ class Venta {
             producto.cantidad,
             producto.precio_neto,
             producto.precio_venta,
+            fecha,
             producto.categoria_id,
             producto.marca_id,
             producto.mascota_id,
