@@ -8,7 +8,7 @@ const { multerParser } = require("../libs/multerConfig");
 router.get("", [authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador],productoController.mostrarProductos);
 router.get("/mantenedor",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador],productoController.obtenerMantenedor);
 router.post("/agregar",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador,multerParser.Producto.single("imagen")],productoController.agregarProducto);
-router.post("/modificar",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador, multerParser.Producto.single("imagen")],productoController.modificarProducto);
+router.put("/modificar",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador, multerParser.Producto.single("imagen")],productoController.modificarProducto);
 router.delete("/eliminar",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador],productoController.eliminarProducto);
 router.get("/historial",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador],productoController.historialProducto);
 

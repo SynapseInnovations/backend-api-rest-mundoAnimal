@@ -41,7 +41,7 @@ class Producto {
             Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}',
             Mascota_id = '${this.mascota_id}', Cuenta_rut = '${this.rut}'`
             if(imgModificado){
-                  sql_ModificarProducto +=`imagen = '${this.imagen}',`
+                  sql_ModificarProducto +=`, imagen = '${this.imagen}' `
             }
             sql_ModificarProducto += `WHERE codigo_barra = '${this.codigo_barra}'
             `;

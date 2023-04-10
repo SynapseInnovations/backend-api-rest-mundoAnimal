@@ -12,7 +12,7 @@ const producto = multer.diskStorage({
             if(!file){
                   return
             }
-            cb(null, req.body.nombre + path.extname(file.originalname));  
+            cb(null, req.body.codigo_barra + path.extname(file.originalname));  
       },
       fileFilter: function(req, file, cb){
             try{
