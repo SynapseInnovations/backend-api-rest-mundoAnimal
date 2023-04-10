@@ -23,22 +23,18 @@ class Cuenta {
             return await conexion.query(sql_RegistrarUsuario);
       };
 
-      Modificar = async(modificado) => {
-            if(modificado){
-                  const sql_ModificarUsuario = ` 
-                  UPDATE Cuenta
-                  SET nombre = '${this.nombre}', correo = '${this.correo}', clave = '${await Cuenta.EncriptarClave(this.clave)}', 
-                  direccion = '${this.direccion}', Rol_id = '${this.Rol_id}'
-                  WHERE rut = '${this.rut}'
-                  `
-                  return await conexion.query(sql_ModificarUsuario);
-            }
-            const sql_ModificarUsuario = ` 
+      Modificar = async(imgModificado, pwModificado) => {
+            let sql_ModificarUsuario = ` 
             UPDATE Cuenta
-            SET nombre = '${this.nombre}', correo = '${this.correo}', clave = '${await Cuenta.EncriptarClave(this.clave)}', 
-            direccion = '${this.direccion}', imagen = '${this.imagen}', Rol_id = '${this.Rol_id}'
-            WHERE rut = '${this.rut}'
-            `
+            SET nombre = '${this.nombre}', correo = '${this.correo}',  
+            direccion = '${this.direccion}', Rol_id = '${this.Rol_id}'`
+            if(pwModificado){
+                  sql_ModificarUsuario += `clave = '${await Cuenta.EncriptarClave(this.clave)}',`
+            }
+            if(imgModificado){
+                  sql_ModificarUsuario += `,imagen = '${this.imagen}' `
+            }
+            sql_ModificarUsuario += `WHERE rut = '${this.rut}'`
             return await conexion.query(sql_ModificarUsuario);
       };
 

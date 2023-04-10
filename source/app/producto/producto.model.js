@@ -11,7 +11,7 @@ const Agregar = async(producto, file, token) => {
       }
 
       if(file==undefined){
-            nuevoProducto.imagen = "https://i.imgur.com/EBH7aDM.png";
+            nuevoProducto.imagen = `${process.env.IMG_TEMPORAL_CUADRADA}`;
       }else{
             nuevoProducto.imagen = `${process.env.HOST}/public/productos/${file.filename}`;
       }
@@ -22,14 +22,13 @@ const Agregar = async(producto, file, token) => {
 const Modificar = async(producto, file, token) =>{
       const rut = await Cuenta.ObtenerTokeen(token);
       const modificarProducto = new Producto(producto, rut.id)
+      const imgModificado = producto.imgModificada == "false" ? false : true
 
-      if(file==undefined){
-            modificarProducto.imagen = "https://i.imgur.com/EBH7aDM.png";
-      }else{
+      if(imgModificado){
             modificarProducto.imagen = `${process.env.HOST}/public/productos/${file.filename}`;
       }
       
-      return await modificarProducto.Modificar();
+      return await modificarProducto.Modificar(imgModificado);
 };
 
 const VerProductos = async() =>{

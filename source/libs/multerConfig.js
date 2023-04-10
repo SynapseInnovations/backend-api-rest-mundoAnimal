@@ -12,7 +12,6 @@ const producto = multer.diskStorage({
             if(!file){
                   return
             }
-
             cb(null, req.body.nombre + path.extname(file.originalname));  
       },
       fileFilter: function(req, file, cb){
@@ -39,6 +38,9 @@ const cuenta = multer.diskStorage({
             cb(null, path.join(__dirname, "../public", "cuentas"));
       },
       filename: function (req, file, cb) {
+            if(!file){
+                  return
+            }
             cb(null, req.body.rut + path.extname(file.originalname));  
       },
       fileFilter: function(req, file, cb){

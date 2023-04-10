@@ -17,7 +17,7 @@ const Registrar = async(usuario, file) =>{
       }
 
       if(file==undefined){
-            nuevoUsuario.imagen = "https://i.imgur.com/EBH7aDM.png";
+            nuevoUsuario.imagen = `${process.env.IMG_TEMPORAL_REDONDA}`;
       }else{
             nuevoUsuario.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
       }
@@ -31,8 +31,9 @@ const Registrar = async(usuario, file) =>{
 };
 
 const Modificar = async(usuario, file) =>{
-      const modificado = false
       modificarUsuario = new Cuenta(usuario);
+      const imgModificado = usuario.modificarImagen == "false" ? false : true
+      const pwModificado = usuario.clave == '' ? false : true
       if (!validateRUT(modificarUsuario.rut)) {
             throw new TypeError("El RUT ingresado no es válido");
       }
@@ -41,11 +42,11 @@ const Modificar = async(usuario, file) =>{
             throw new TypeError("No existe el usuario.");
       }
 
-      if (file) {
+      if (imgModificado) {
             modificarUsuario.imagen = `${process.env.HOST}/public/cuentas/${file.filename}`;
       }
 
-      return await modificarUsuario.Modificar(modificado);
+      return await modificarUsuario.Modificar(imgModificado, pwModificado);
 };
 
 

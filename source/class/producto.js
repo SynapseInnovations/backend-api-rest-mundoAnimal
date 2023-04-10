@@ -32,15 +32,18 @@ class Producto {
             return await conexion.query(sql_agregarProducto);
       };
 
-      Modificar = async() => {
-            const sql_ModificarProducto = `
+      Modificar = async(imgModificado) => {
+            let sql_ModificarProducto = `
             UPDATE Producto
             SET nombre = '${this.nombre}', cantidad = '${this.cantidad}', 
             descripcion = '${this.descripcion}', precio_kilo = '${this.precio_kilo}', 
-            precio_unitario = '${this.precio_unitario}', imagen = '${this.imagen}', fecha = '${this.fecha}', 
+            precio_unitario = '${this.precio_unitario}', fecha = '${this.fecha}', 
             Marca_id = '${this.marca_id}', Categoria_id = '${this.categoria_id}',
-            Mascota_id = '${this.mascota_id}', Cuenta_rut = '${this.rut}'
-            WHERE codigo_barra = '${this.codigo_barra}'
+            Mascota_id = '${this.mascota_id}', Cuenta_rut = '${this.rut}'`
+            if(imgModificado){
+                  sql_ModificarProducto +=`imagen = '${this.imagen}',`
+            }
+            sql_ModificarProducto += `WHERE codigo_barra = '${this.codigo_barra}'
             `;
             return await conexion.query(sql_ModificarProducto);
       };
