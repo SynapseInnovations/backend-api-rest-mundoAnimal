@@ -23,7 +23,7 @@ const registrarUsuario = async(req, res) =>{
             const query = await cuentaModel.Registrar(req.body, req.file);
             return res.status(200).json({
                   error: false,
-                  msg: `Se ha ingresado la categoria ${req.body.rut} de forma exitosa.`
+                  msg: `Se ha ingresado la cuenta ${req.body.rut} de forma exitosa.`
             });
       }catch(error){
             console.error(error);

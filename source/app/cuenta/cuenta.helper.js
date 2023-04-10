@@ -9,6 +9,13 @@ const VerificarUsuarioSistema = async (rut) =>{
       return respuesta[0].Existe;
 };
 
+const ContabilizandoUsuariosActivos = async(listaUsuarios) =>{
+      let listaFiltrada = listaUsuarios.filter( usuario => usuario.Rol_id != 3);
+      console.log(listaFiltrada.length)
+      return listaFiltrada.length;
+};
+
 module.exports.cuentaHelper = {
-      VerificarUsuarioSistema
+      VerificarUsuarioSistema,
+      ContabilizandoUsuariosActivos
 };

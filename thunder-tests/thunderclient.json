@@ -8,8 +8,13 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-03-31T03:42:52.762Z",
-    "modified": "2023-03-31T03:42:52.762Z",
-    "headers": [],
+    "modified": "2023-04-10T23:34:56.654Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODExNjk2ODYsImV4cCI6MTY4MTI1NjA4Nn0.WC-LbhycSF-STVcQ9bTqyprYLO-B5PQsDn3xF6BUzkI"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -127,8 +132,13 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-31T03:42:52.767Z",
-    "modified": "2023-03-31T03:42:52.767Z",
-    "headers": [],
+    "modified": "2023-04-10T23:48:54.451Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODExNjk2ODYsImV4cCI6MTY4MTI1NjA4Nn0.WC-LbhycSF-STVcQ9bTqyprYLO-B5PQsDn3xF6BUzkI"
+      }
+    ],
     "params": [],
     "body": {
       "type": "formdata",
@@ -136,7 +146,7 @@
       "form": [
         {
           "name": "rut",
-          "value": "24039258‑5"
+          "value": "40159556‑2"
         },
         {
           "name": "nombre",
@@ -158,8 +168,7 @@
           "name": "Rol_id",
           "value": "1"
         }
-      ],
-      "files": []
+      ]
     },
     "tests": []
   },
