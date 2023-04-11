@@ -14,6 +14,6 @@ router.get("/perfil",[authToken.VerificarToken,authToken.VerificarOperadorOrAdmi
 
 router.put("/modificar", [authToken.VerificarToken, authToken.VerificarAdministrador, multerParser.Cuenta.single('imagen')], cuentaController.modificarUsuario);
 router.delete("/eliminar",[authToken.VerificarToken, authToken.VerificarAdministrador],cuentaController.eliminarUsuario);
-router.put("/habilitar",[authToken.VerificarToken, authToken.VerificarAdministrador],cuentaController.habilitarCuenta);
+router.put("/habilitar",  [authToken.VerificarToken, authToken.VerificarAdministrador, CuentaMiddleware.CantidadDeCuenta],cuentaController.habilitarCuenta);
 
 module.exports = router;

@@ -722,8 +722,13 @@
     "method": "PUT",
     "sortNum": 140000,
     "created": "2023-04-06T17:57:22.588Z",
-    "modified": "2023-04-06T18:26:16.523Z",
-    "headers": [],
+    "modified": "2023-04-11T00:12:59.889Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODExNjk2ODYsImV4cCI6MTY4MTI1NjA4Nn0.WC-LbhycSF-STVcQ9bTqyprYLO-B5PQsDn3xF6BUzkI"
+      }
+    ],
     "params": [
       {
         "name": "rut",
