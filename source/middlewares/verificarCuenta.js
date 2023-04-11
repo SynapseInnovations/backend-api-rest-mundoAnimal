@@ -8,11 +8,9 @@ const CantidadDeCuenta = async(req, res, next) =>{
             let listaUsuarios = await Cuenta.ListaUsuarios()
             const cantidadUsuariosActivos = await cuentaHelper.ContabilizandoUsuariosActivos(listaUsuarios)
             if (cantidadUsuariosActivos > MaximaCantidadCuentaActivas) {
-                  // Borrar el console log dps.
-                  console.log("error, se ha excedido el límite de cuentas activas");
                   return res.status(403).json({
                         error: true,
-                        msg: `Se ha excedio el límite de cuentas activas. (limite: ${MaximaCantidadCuentaActivas})`,
+                        msg: `Se ha excedido el límite de cuentas activas. (Activas: ${cantidadUsuariosActivos}, Límite: ${MaximaCantidadCuentaActivas})`,
                   });
             }
             next()

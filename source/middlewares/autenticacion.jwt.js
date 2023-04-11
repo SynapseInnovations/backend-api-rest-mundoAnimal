@@ -5,6 +5,7 @@ const Cuenta = require("../class/cuenta");
 const VerificarToken = async (req, res, next) => {
       try{
             const token = req.headers["token"];
+            console.log(req.headers, req.body)
             if (!token) {
                   return res.status(403).json({
                         error: true,

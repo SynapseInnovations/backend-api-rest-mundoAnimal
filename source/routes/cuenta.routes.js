@@ -12,8 +12,8 @@ router.post("/crear_cuenta",[authToken.VerificarToken, authToken.VerificarAdmini
 router.post("/iniciar_sesion", cuentaController.iniciarSesion);
 router.get("/perfil",[authToken.VerificarToken,authToken.VerificarOperadorOrAdministrador],cuentaController.perfilUsuario)
 
-router.post("/modificar", [authToken.VerificarToken, authToken.VerificarAdministrador, multerParser.Cuenta.single('imagen')], cuentaController.modificarUsuario);
+router.put("/modificar", [authToken.VerificarToken, authToken.VerificarAdministrador, multerParser.Cuenta.single('imagen')], cuentaController.modificarUsuario);
 router.delete("/eliminar",[authToken.VerificarToken, authToken.VerificarAdministrador],cuentaController.eliminarUsuario);
-router.put("/habilitar",  [authToken.VerificarToken, authToken.VerificarAdministrador],cuentaController.habilitarCuenta);
+router.put("/habilitar",[authToken.VerificarToken, authToken.VerificarAdministrador],cuentaController.habilitarCuenta);
 
 module.exports = router;
