@@ -1,7 +1,7 @@
 const conexion = require("../../database");
 const { cuentaHelper } = require("./cuenta.helper");
 const jwt = require("jsonwebtoken");
-const { validateRUT } = require("validar-rut");
+const { validateRUT } = require("../../libs/VerificadorRut")
 const  Cuenta  = require("../../class/cuenta")
 
 const Registrar = async(usuario, file) =>{
