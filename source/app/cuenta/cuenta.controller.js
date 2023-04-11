@@ -10,7 +10,7 @@ const mostrarUsuarios = async(req,res) =>{
                   data: query
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: "" + error.message,
@@ -26,7 +26,7 @@ const registrarUsuario = async(req, res) =>{
                   msg: `Se ha ingresado la cuenta ${req.body.rut} de forma exitosa.`
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: ''+error.message
@@ -43,7 +43,7 @@ const iniciarSesion = async(req,res)=>{
                   data: query
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: ''+error.message
@@ -60,6 +60,7 @@ const perfilUsuario = async(req,res) =>  {
                   data: query
             });
       }catch(error){
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: "" + error.message,
@@ -75,7 +76,7 @@ const modificarUsuario = async(req, res) =>{
                   msg: `Se ha modificado con exito el usuario ${req.body.rut}.`
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: "" + error.message,
@@ -91,7 +92,7 @@ const eliminarUsuario = async(req, res) => {
                   msg: `Se ha eliminado con exito el usuario.`
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: "" + error.message,
@@ -107,7 +108,7 @@ const habilitarCuenta = async(req, res) => {
                   msg: "Se ha habilitado el el usuario."
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: "" + error.message,

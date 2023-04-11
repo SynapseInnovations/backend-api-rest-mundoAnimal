@@ -9,7 +9,7 @@ const mostrarProductos = async(req,res) =>{
                   data: query
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.json({
                   error: true,
                   msg: ''+error.message
@@ -26,6 +26,7 @@ const obtenerMantenedor= async(req,res) => {
                   data: query
             })
       }catch(error){
+            console.log(error)
             return res.json({
                   error:true,
                   msg: ''+error.message
@@ -42,6 +43,7 @@ const agregarProducto = async(req, res) =>{
                   data: query
             })
       }catch(error){
+            console.log(error)
             return res.json({
                   error:true,
                   msg: ''+error.message
@@ -75,7 +77,7 @@ const eliminarProducto = async(req, res) =>{
                   data: query
             });
       }catch(error) {
-            console.error(error)
+            console.log(error)
             return res.json({
                   error:true,
                   msg: ''+error.message
@@ -92,7 +94,7 @@ const historialProducto = async(req,res) =>{
                   data: query
             });
       }catch(error){
-            console.error(error)
+            console.log(error)
             return res.json({
                   error: true,
                   msg: "" + error.message,

@@ -5,7 +5,6 @@ const Cuenta = require("../class/cuenta");
 const VerificarToken = async (req, res, next) => {
       try{
             const token = req.headers["token"];
-            console.log(req.headers, req.body)
             if (!token) {
                   return res.status(403).json({
                         error: true,
@@ -19,7 +18,7 @@ const VerificarToken = async (req, res, next) => {
             }
             next();
       }catch(error){
-            console.error(error)
+            console.log(error)
             return res.status(401).json({
                   error: true,
                   msg: "" + error.message,
@@ -41,7 +40,7 @@ const VerificarUsuario = async (req,res,next) =>{
                   msg: "Solo los Usuario pueden acceder a esta función"
             })
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.status(401).json({
                   error: true,
                   msg: "" + error.message,

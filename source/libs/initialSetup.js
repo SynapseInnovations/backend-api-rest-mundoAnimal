@@ -28,7 +28,7 @@ const CrearRoles = async() =>{
                   ])
             }
       }catch(error){
-            console.error(error)
+            console.log(error)
       }
 }
 
@@ -50,7 +50,7 @@ const CrearMarca = async() =>{
 
                   }
       } catch (error) {
-            console.error(error);
+            console.log(error)
       }
 }
 
@@ -69,7 +69,7 @@ const CrearAnimal = async() =>{
                   ])
             }
       } catch (error) {
-            console.error(error);
+            console.log(error)
       }
 }
 
@@ -86,7 +86,7 @@ const CrearTipo = async() =>{
                   ])
             }
       } catch (error) {
-            console.error(error);
+            console.log(error)
       }
 }
 

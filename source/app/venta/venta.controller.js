@@ -8,7 +8,7 @@ const registrarVenta = async(req,res) =>{
                   msg: "Se ha registrado la venta exitosamente",
             });
       }catch(error){
-            console.error(error)
+            console.log(error)
             return res.status(400).json({
                   error: true,
                   msg: error.name+ " " + error.message,
@@ -21,11 +21,11 @@ const mostrarVentas = async(req, res) =>{
             const query = await ventaModel.VerVentas();
             return res.status(200).json({
                   error: false,
-                  message: "Lista de ventas cargada exitosamente.",
+                  msg: "Lista de ventas cargada exitosamente.",
                   data: query
             });
       } catch (error) {
-            console.error(error);
+            console.log(error)
             return res.json({
                   error: true,
                   msg: "" + error.message,
@@ -41,7 +41,7 @@ const eliminarVenta = async(req, res) => {
                   msg: "Se ha anulado la venta exitosamente.}"
             });
       }catch(error){
-            console.error(error);
+            console.log(error)
             return res.json({
                   error: true,
                   msg: "" + error.message,

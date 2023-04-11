@@ -26,6 +26,7 @@ const registrarCategoria = async(req, res) =>{
                   data: query
             })
       }catch(error){
+            console.log(error)
             return res.json({
                   error:true,
                   msg: ''+error.message

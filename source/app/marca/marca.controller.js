@@ -26,6 +26,7 @@ const registrarMarca = async(req, res) =>{
                   data: query
             })
       }catch(error){
+            console.log(error)
             return res.json({
                   error:true,
                   msg: ''+error.message
@@ -59,7 +60,7 @@ const eliminarMarca = async(req, res)=>{
                   data: query
             });
       }catch(error){
-            console.error(error)
+            console.log(error)
             return res.json({
                   error: true,
                   msg: ''+error.message

@@ -11,7 +11,6 @@ const VerificarUsuarioSistema = async (rut) =>{
 
 const ContabilizandoUsuariosActivos = async(listaUsuarios) =>{
       let listaFiltrada = listaUsuarios.filter( usuario => usuario.Rol_id != 3);
-      console.log(listaFiltrada.length)
       return listaFiltrada.length;
 };
 
