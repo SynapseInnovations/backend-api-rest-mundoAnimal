@@ -29,7 +29,7 @@ class Cuenta {
             SET nombre = '${this.nombre}', correo = '${this.correo}',  
             direccion = '${this.direccion}', Rol_id = '${this.Rol_id}'`
             if(pwModificado){
-                  sql_ModificarUsuario += `clave = '${await Cuenta.EncriptarClave(this.clave)}',`
+                  sql_ModificarUsuario += `,clave = '${await Cuenta.EncriptarClave(this.clave)}'`
             }
             if(imgModificado){
                   sql_ModificarUsuario += `,imagen = '${this.imagen}' `
