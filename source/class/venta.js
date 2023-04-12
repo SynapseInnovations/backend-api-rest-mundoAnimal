@@ -141,6 +141,11 @@ class Venta {
                                     inventarioProducto.codigo_barra
                               ]);
             }
+            console.log("----------------------SEPARADOR CULIAO----------------------")
+            console.log(venta)
+            console.log("----------------------SEPARADOR CULIAO----------------------")
+            console.log(values_ActualizarInventario)
+            console.log("----------------------SEPARADOR CULIAO----------------------")
             const sql_ActualizarInventario = `
             UPDATE Producto 
             SET cantidad = CASE codigo_barra
@@ -148,6 +153,7 @@ class Venta {
                   return `WHEN '${codigo_barra}' THEN ${cantidad}`;
             })
             .join(" ")}
+            ELSE cantidad
             END;
             `
 
