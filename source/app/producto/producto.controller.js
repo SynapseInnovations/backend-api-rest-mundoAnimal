@@ -73,7 +73,7 @@ const eliminarProducto = async(req, res) =>{
             const query = await productoModel.Eliminar(req.query.codigo_barra, req.headers["token"]);
             return res.status(200).json({
                   error: false,
-                  msg: `Se ha eliminado con exito el producto ${req.body.codigo_barra}`,
+                  msg: `Se ha eliminado con exito el producto ${req.query.codigo_barra}`,
                   data: query
             });
       }catch(error) {
