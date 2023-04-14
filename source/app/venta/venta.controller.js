@@ -38,7 +38,7 @@ const eliminarVenta = async(req, res) => {
             const query = await ventaModel.Eliminar(req.query.numero_boleta);
             return res.status(200).json({
                   error: true,
-                  msg: "Se ha anulado la venta exitosamente.}"
+                  msg: `Se ha anulado la boleta N° ${req.query.numero_boleta} exitosamente.`
             });
       }catch(error){
             console.log(error)

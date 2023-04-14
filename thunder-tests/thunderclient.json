@@ -737,5 +737,35 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "f8f28448-a0a7-4fe2-badd-b845d6fc3e1c",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "dd62e682-d61a-4700-95c9-55ec7e103f0e",
+    "name": "Historial Ventas (day,month,year)",
+    "url": "http://localhost:10905/finanza/historial?tipo=dia&valor=12",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-04-13T23:52:29.134Z",
+    "modified": "2023-04-13T23:53:55.217Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODE0MzAwMDIsImV4cCI6MTY4MTUxNjQwMn0.HVkZA0EYDWBkaoE3WpkvFGEQZifLWOqRHjKjO48vNnI"
+      }
+    ],
+    "params": [
+      {
+        "name": "tipo",
+        "value": "dia",
+        "isPath": false
+      },
+      {
+        "name": "valor",
+        "value": "12",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]
