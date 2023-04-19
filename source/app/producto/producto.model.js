@@ -33,7 +33,7 @@ const Modificar = async(producto, file, token) =>{
 
 const VerProductos = async() =>{
       const sql_mostrarProducto = `
-      SELECT P.codigo_barra, P.nombre, P.cantidad, P.descripcion, P.precio_kilo, P.precio_unitario, P.imagen, 
+      SELECT P.codigo_barra, P.nombre, P.cantidad, P.descripcion, P.precio_neto, P.precio_kilo, P.precio_unitario, P.imagen, 
       C.nombre Categoria, C.id categoria_id, 
       M.nombre Marca, M.id marca_id,
       MS.nombre Mascota, MS.id mascota_id
