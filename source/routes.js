@@ -9,5 +9,7 @@ app.use("/marca", require("./routes/marca.routes"));
 app.use("/categoria", require("./routes/categoria.routes"));
 app.use("/mascota", require("./routes/mascota.routes"));
 
+app.use("/libro", require("./routes/libro.routes"));
+app.use("/prestamo", require("./routes/prestamo.routes"));
 
 module.exports = app;

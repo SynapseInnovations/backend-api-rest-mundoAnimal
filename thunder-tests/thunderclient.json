@@ -4,11 +4,11 @@
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "82b056e0-b936-4888-9b32-60ec86632177",
     "name": "Listar usuarios",
-    "url": "http://localhost:10905/usuario",
+    "url": "backend-api-rest-mundo-animal.vercel.app/usuario",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-03-31T03:42:52.762Z",
-    "modified": "2023-04-10T23:34:56.654Z",
+    "modified": "2023-04-11T21:33:57.058Z",
     "headers": [
       {
         "name": "token",
@@ -132,11 +132,11 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-31T03:42:52.767Z",
-    "modified": "2023-04-10T23:48:54.451Z",
+    "modified": "2023-04-12T04:35:43.400Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODExNjk2ODYsImV4cCI6MTY4MTI1NjA4Nn0.WC-LbhycSF-STVcQ9bTqyprYLO-B5PQsDn3xF6BUzkI"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODEyNzM4NjMsImV4cCI6MTY4MTM2MDI2M30.Ywqh8oIUKXoNn1E616H_5zl_rFxJRTnMoe65zy4-dgo"
       }
     ],
     "params": [],
@@ -146,7 +146,7 @@
       "form": [
         {
           "name": "rut",
-          "value": "40159556‑2"
+          "value": "81635826-4"
         },
         {
           "name": "nombre",
@@ -167,6 +167,12 @@
         {
           "name": "Rol_id",
           "value": "1"
+        }
+      ],
+      "files": [
+        {
+          "name": "imagen",
+          "value": "..\\..\\..\\..\\OneDrive\\Imágenes\\burgerking.png"
         }
       ]
     },
@@ -293,15 +299,15 @@
     "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
     "containerId": "546e56c6-c2e8-4c0c-a4cd-19a65c63ab1e",
     "name": "Ver Producto",
-    "url": "http://localhost:10905/producto",
+    "url": "backend-api-rest-mundo-animal.vercel.app/producto",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-31T03:42:52.771Z",
-    "modified": "2023-04-05T23:29:55.540Z",
+    "modified": "2023-06-12T22:35:02.399Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODA3MzczODUsImV4cCI6MTY4MDgyMzc4NX0.sPWsbYbtJy5AcziBeNuO1_ZZtuduXFfrblC5z1aJJbY"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
       }
     ],
     "params": [],
@@ -409,14 +415,14 @@
     "containerId": "82b056e0-b936-4888-9b32-60ec86632177",
     "name": "Modificar Usuario",
     "url": "http://localhost:10905/usuario/modificar",
-    "method": "POST",
+    "method": "PUT",
     "sortNum": 90000,
     "created": "2023-03-31T03:42:52.778Z",
-    "modified": "2023-03-31T04:04:50.175Z",
+    "modified": "2023-04-12T04:38:34.523Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODcwMDk1LTkiLCJpYXQiOjE2ODAyMjI4NTcsImV4cCI6MTY4MDMwOTI1N30.sL-sbPHLqC4_58CpMT8TTATffV0hOduiIzxfCl1rgfs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODEyNzM4NjMsImV4cCI6MTY4MTM2MDI2M30.Ywqh8oIUKXoNn1E616H_5zl_rFxJRTnMoe65zy4-dgo"
       }
     ],
     "params": [],
@@ -426,11 +432,11 @@
       "form": [
         {
           "name": "rut",
-          "value": "19870095-9"
+          "value": "58504907-7"
         },
         {
           "name": "nombre",
-          "value": "Gabriel"
+          "value": "Gabriela"
         },
         {
           "name": "correo",
@@ -449,7 +455,12 @@
           "value": "1"
         }
       ],
-      "files": []
+      "files": [
+        {
+          "name": "imagen",
+          "value": "..\\..\\..\\..\\Pictures\\277436700_155869706879199_1523313557366901988_n.jpg"
+        }
+      ]
     },
     "tests": []
   },
@@ -736,6 +747,92 @@
         "isPath": false
       }
     ],
+    "tests": []
+  },
+  {
+    "_id": "acce0213-e660-4954-a0d5-221ed5e8d586",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "a093f350-620b-4baf-b196-056136fba791",
+    "name": "Mostrar",
+    "url": "http://localhost:10905/libro/",
+    "method": "GET",
+    "sortNum": 160000,
+    "created": "2023-06-12T22:31:35.693Z",
+    "modified": "2023-06-13T01:26:26.152Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6950570a-447d-4d50-8ed0-f1eedaf1f522",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "a093f350-620b-4baf-b196-056136fba791",
+    "name": "registrar",
+    "url": "http://localhost:10905/libro/registrar_libro",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-06-13T00:02:23.777Z",
+    "modified": "2023-06-13T02:11:46.968Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"codigo_barra\":2,\n  \"titulo\":\"El Principito\",\n  \"autor\":\"Garcia\",\n  \"editorial\": \"edito\",\n  \"anio_publicacion\": \"2023-03-18\",\n  \"cantidad\": 10\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "170413ef-e082-47b9-bc7a-f818c94fc351",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "a044a1b3-a54e-4319-840c-f1a71eae77d6",
+    "name": "Prestamo",
+    "url": "http://localhost:10905/prestamo/prestar_libro",
+    "method": "POST",
+    "sortNum": 190000,
+    "created": "2023-06-13T01:32:57.088Z",
+    "modified": "2023-06-13T02:17:59.578Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"rut\":\"66666666-6\",\n  \"codigo_barra\":1,\n  \"fecha_prestamo\":\"2023-03-18\",\n  \"fecha_devolucion\":\"2023-03-18\",\n  \"estado\":\"Prestado\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c4d7215b-a2a4-436d-a8cd-7bf71dcf3ab7",
+    "colId": "ef8510e2-7f6b-4d66-97f3-ce1ff076a042",
+    "containerId": "a044a1b3-a54e-4319-840c-f1a71eae77d6",
+    "name": "Mostrar",
+    "url": "http://localhost:10905/prestamo",
+    "method": "GET",
+    "sortNum": 200000,
+    "created": "2023-06-13T01:33:06.268Z",
+    "modified": "2023-06-13T02:29:24.576Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+      }
+    ],
+    "params": [],
     "tests": []
   }
 ]

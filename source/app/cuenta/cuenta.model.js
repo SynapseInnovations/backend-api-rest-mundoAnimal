@@ -34,6 +34,8 @@ const Modificar = async(usuario, file) =>{
       modificarUsuario = new Cuenta(usuario);
       const imgModificado = usuario.modificarImagen == "false" ? false : true
       const pwModificado = usuario.clave == '' ? false : true
+
+      console.log(modificarUsuario.rut);
       if (!validateRUT(modificarUsuario.rut)) {
             throw new TypeError("El RUT ingresado no es válido");
       }

@@ -26,7 +26,7 @@ const registrarUsuario = async(req, res) =>{
                   msg: `Se ha ingresado la cuenta ${req.body.rut} de forma exitosa.`
             });
       }catch(error){
-            console.log(error)
+            console.error(error)
             return res.status(400).json({
                   error: true,
                   msg: ''+error.message
