@@ -758,11 +758,11 @@
     "method": "GET",
     "sortNum": 160000,
     "created": "2023-06-12T22:31:35.693Z",
-    "modified": "2023-06-13T01:26:26.152Z",
+    "modified": "2023-06-28T00:37:59.508Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODc5MTI2MDYsImV4cCI6MTY4Nzk5OTAwNn0.Un09PGrp4GhBSJI8QCWJEW4oHGbzJjjVLpXbDJXzZp0"
       }
     ],
     "params": [],
@@ -777,18 +777,43 @@
     "method": "POST",
     "sortNum": 80000,
     "created": "2023-06-13T00:02:23.777Z",
-    "modified": "2023-06-13T02:11:46.968Z",
+    "modified": "2023-06-28T00:37:38.613Z",
     "headers": [
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODY2MDkxNjEsImV4cCI6MTY4NjY5NTU2MX0.KT0vGMYRRfGRLXg9I8ZYooeiLy3B3U9e-J8LXE_V8_0"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjY2NjY2LTYiLCJpYXQiOjE2ODc5MTI2MDYsImV4cCI6MTY4Nzk5OTAwNn0.Un09PGrp4GhBSJI8QCWJEW4oHGbzJjjVLpXbDJXzZp0"
       }
     ],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"codigo_barra\":2,\n  \"titulo\":\"El Principito\",\n  \"autor\":\"Garcia\",\n  \"editorial\": \"edito\",\n  \"anio_publicacion\": \"2023-03-18\",\n  \"cantidad\": 10\n}",
-      "form": []
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "codigo_barra",
+          "value": "2"
+        },
+        {
+          "name": "titulo",
+          "value": "El Principito"
+        },
+        {
+          "name": "autor",
+          "value": "Garcia"
+        },
+        {
+          "name": "editorial",
+          "value": "edito"
+        },
+        {
+          "name": "anio_publicacion",
+          "value": "2023-03-18"
+        },
+        {
+          "name": "cantidad",
+          "value": "10"
+        }
+      ]
     },
     "tests": []
   },
